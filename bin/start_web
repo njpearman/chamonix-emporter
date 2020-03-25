@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# The start up script for the web service defined for Compose.
+#
+# The script first needs to symlink the node_modules folder located outside
+# the working directory into the default location expected by yarn.
+#
+# The script finishes by starting the rails server
+
+if [ ! -L /usr/src/app/node_modules ]; then
+  echo "node_modules has not been linked, linking now..."
+  ln -s /usr/src/node_modules /usr/src/app/node_modules
+else
+  echo "node_modules has already been mapped"
+fi
+
+if [ -f tmp/pids/server.pid ]; then
+  echo "Removing server.pid file"
+  rm tmp/pids/server.pid
+fi
+
+bin/rails s -b 0.0.0.0

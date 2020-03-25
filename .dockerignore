@@ -1,0 +1,19 @@
+# Git
+.git
+.gitignore
+
+# Development info
+README.md
+
+# Logs
+log/*
+
+# Temp files
+tmp/*
+
+# Vim temp files
+*.swp
+*.swo
+
+# Node modules
+node_modules
