@@ -53,85 +53,40 @@
 
 
   <div class="content">
-    <div class="place">
-      <a href="#" class="title">Bighorn Bistro & Bakery</a>
-      <div class="desc">
-        A family run restaurant in Chamonix-Mont-Blanc, France
-      </div>
-      <div class="opening">Friday to Monday 12pm - 8pm</div>
+    <% @vendors.each do |vendor| %>
+      <div class="place<%= vendor.delivers ? " vendor--delivers" : "" %>">
+        <a href="#" class="title"><%= vendor.name %></a>
+        <div class="opening">Open today, 12h00 - 20h00</div>
 
-      <div class="space-between">
-        <div class="delivers">Delivers: 𐄂</div>
-        <div class="open-days">
-          <span class="day open">M</span>
-          <span class="day">T</span>
-          <span class="day">O</span>
-          <span class="day">T</span>
-          <span class="day open">F</span>
-          <span class="day open">S</span>
-          <span class="day open">S</span>
+        <div class="meta">
+          <div class="address">
+            <a href="https://www.google.fr/maps/place/The+Dainty+Pizza/@45.9192243,6.8655293,17z/data=!3m1!4b1!4m5!3m4!1s0x47894fae40567ad9:0x96decf438f4a453f!8m2!3d45.9192206!4d6.8677233">
+              67 promenade marie paradis
+            </a>
+          </div>
+          <div class="contact">
+            <div>
+              Tel: <a href="tel:0450967359">04 50 96 73 59</a>
+            </div>
+            <div>
+              Website:<a href="http://www.thedaintypizza.com">www.thedaintypizza.com</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="space-between">
+          <div class="delivers">Delivers: <%= vendor.delivers ? '✓' : '𐄂' %></div>
+          <div class="open-days">
+            <span class="day open">M</span>
+            <span class="day">T</span>
+            <span class="day">O</span>
+            <span class="day">T</span>
+            <span class="day open">F</span>
+            <span class="day open">S</span>
+            <span class="day open">S</span>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="place place--delivers">
-      <a href="#" class="title">The Dainty Pizza</a>
-      <div class="desc">
-        Some nice pizza.
-      </div>
-
-      <div class="opening">
-        Tueseday to Wednesday 6pm - 10pm
-      </div>
-
-      <div class="meta">
-        <div class="address">
-          Address: <a href="https://www.google.fr/maps/place/The+Dainty+Pizza/@45.9192243,6.8655293,17z/data=!3m1!4b1!4m5!3m4!1s0x47894fae40567ad9:0x96decf438f4a453f!8m2!3d45.9192206!4d6.8677233">
-            67 promenade marie paradis
-          </a>
-        </div>
-        <div>
-          Tel: <a href="tel:0450967359">04 50 96 73 59</a>
-        </div>
-        <div>
-          Website:<a href="http://www.thedaintypizza.com">www.thedaintypizza.com</a>
-        </div>
-      </div>
-
-      <div class="space-between">
-        <div class="delivers open">Delivers: ✓</div>
-        <div class="open-days">
-          <span class="day">M</span>
-          <span class="day open">T</span>
-          <span class="day open">O</span>
-          <span class="day open">T</span>
-          <span class="day">F</span>
-          <span class="day">S</span>
-          <span class="day">S</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="place">
-      <a href="#" class="title">La Maison des Burgers "LMB"</a>
-      <div class="desc">
-        Central burger place.
-      </div>
-      <div class="opening">Everyday 12pm - 8pm</div>
-    </div>
-
-    <div class="place">
-      <a href="#" class="title">HIBOU Deli</a>
-      <div class="desc">
-        Good and healthy food.
-      </div>
-      <div class="opening">
-        Monday to Friday 12pm - 8pm<br />
-        Saturday 6pm - 8pm<br />
-        Sunday closed
-      </div>
-    </div>
+    <% end %>
   </div>
-
-
 </div>
