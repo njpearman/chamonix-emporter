@@ -59,11 +59,7 @@
         <div class="opening">Open today, 12h00 - 20h00</div>
 
         <div class="meta">
-          <div class="address">
-            <a href="https://www.google.fr/maps/place/The+Dainty+Pizza/@45.9192243,6.8655293,17z/data=!3m1!4b1!4m5!3m4!1s0x47894fae40567ad9:0x96decf438f4a453f!8m2!3d45.9192206!4d6.8677233">
-              67 promenade marie paradis
-            </a>
-          </div>
+          <%= render partial: "location", locals: { location: vendor.location } %>
           <div class="contact">
             <div>
               Tel: <a href="tel:0450967359">04 50 96 73 59</a>
