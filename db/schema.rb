@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_25_093436) do
+ActiveRecord::Schema.define(version: 2020_03_26_160959) do
+
+  create_table "locations", force: :cascade do |t|
+    t.string "street"
+    t.string "town"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "vendors", force: :cascade do |t|
     t.string "name"
     t.boolean "delivers"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "location_id"
+    t.index ["location_id"], name: "index_vendors_on_location_id"
   end
 
+  add_foreign_key "vendors", "locations"
 end

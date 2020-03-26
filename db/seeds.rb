@@ -6,9 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 #
+Location.destroy_all
+Vendor.destroy_all
 
-Vendor.create! name: 'Bighorn Bistro & Bakery', delivers: false
-Vendor.create! name: 'The Dainty Pizza', delivers: true
-Vendor.create! name: 'La Maison des Burgers', delivers: false
-Vendor.create! name: 'Hibou Deli', delivers: false
+location = Location.create! street: "77 Place Edmond Desailloud", town: "Chamonix"
+Vendor.create! name: 'Bighorn Bistro & Bakery', delivers: false, location: location
+
+location = Location.create! street: "67 Promenade Marie Paradis", town: "Chamonix"
+Vendor.create! name: 'The Dainty Pizza', delivers: true, location: location
+
+location = Location.create! street: "23 rue du Docteur Paccard", town: "Chamonix"
+Vendor.create! name: 'La Maison des Burgers', delivers: false, location: location
+
+location = Location.create! street: "416 rue Joseph Vallot", town: "Chamonix"
+Vendor.create! name: 'Hibou Deli', delivers: false, location: location
   
