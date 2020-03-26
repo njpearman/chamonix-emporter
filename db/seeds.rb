@@ -9,15 +9,15 @@
 Location.destroy_all
 Vendor.destroy_all
 
-location = Location.create! street: "77 Place Edmond Desailloud", town: "Chamonix"
+location = Location.create! street: "77 Place Edmond Desailloud", town: "Chamonix", latitude: "45.9189243", longitude: "6.8676844"
 Vendor.create! name: 'Bighorn Bistro & Bakery', delivers: false, location: location
 
-location = Location.create! street: "67 Promenade Marie Paradis", town: "Chamonix"
+location = Location.create! street: "67 Promenade Marie Paradis", town: "Chamonix", latitude: "45.919216", longitude: "6.867719"
 Vendor.create! name: 'The Dainty Pizza', delivers: true, location: location
 
-location = Location.create! street: "34 Rue du Docteur Paccard", town: "Chamonix"
+location = Location.create! street: "34 Rue du Docteur Paccard", town: "Chamonix", latitude: "45.9227033", longitude: "6.8691504"
 Vendor.create! name: 'La Maison du Burger', delivers: false, location: location
 
-location = Location.create! street: "416 Rue Joseph Vallot", town: "Chamonix"
+location = Location.create! street: "416 Rue Joseph Vallot", town: "Chamonix", latitude: "45.9270337", longitude: "6.8698641"
 Vendor.create! name: 'Hibou Deli', delivers: false, location: location
   
