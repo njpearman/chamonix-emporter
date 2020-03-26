@@ -15,9 +15,9 @@ Vendor.create! name: 'Bighorn Bistro & Bakery', delivers: false, location: locat
 location = Location.create! street: "67 Promenade Marie Paradis", town: "Chamonix"
 Vendor.create! name: 'The Dainty Pizza', delivers: true, location: location
 
-location = Location.create! street: "23 rue du Docteur Paccard", town: "Chamonix"
-Vendor.create! name: 'La Maison des Burgers', delivers: false, location: location
+location = Location.create! street: "34 Rue du Docteur Paccard", town: "Chamonix"
+Vendor.create! name: 'La Maison du Burger', delivers: false, location: location
 
-location = Location.create! street: "416 rue Joseph Vallot", town: "Chamonix"
+location = Location.create! street: "416 Rue Joseph Vallot", town: "Chamonix"
 Vendor.create! name: 'Hibou Deli', delivers: false, location: location
   
