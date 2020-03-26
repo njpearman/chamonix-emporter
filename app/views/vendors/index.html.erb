@@ -56,7 +56,16 @@
     <% @vendors.each do |vendor| %>
       <div class="place<%= vendor.delivers ? " vendor--delivers" : "" %>">
         <a href="#" class="title"><%= vendor.name %></a>
-        <div class="opening">Open today, 12h00 - 20h00</div>
+        <% if vendor.open_today? %>
+          <div class="opening">
+            Open today
+            <% vendor.hours_for_today.each do |range| %>
+              <div><%= range %></div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="opening">Not opening today</div>
+        <% end %>
 
         <div class="meta">
           <%= render partial: "location", locals: { location: vendor.location, name: vendor.name } %>

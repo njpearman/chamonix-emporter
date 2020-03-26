@@ -10,10 +10,16 @@ Location.destroy_all
 Vendor.destroy_all
 
 location = Location.create! street: "77 Place Edmond Desailloud", town: "Chamonix", latitude: "45.9189243", longitude: "6.8676844"
-Vendor.create! name: 'Bighorn Bistro & Bakery', delivers: false, location: location
+vendor = Vendor.create! name: 'Bighorn Bistro & Bakery', delivers: false, location: location
+%w[Monday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 12*60, end_in_mins: 20*60, vendor: vendor
+end
 
 location = Location.create! street: "67 Promenade Marie Paradis", town: "Chamonix", latitude: "45.919216", longitude: "6.867719"
 Vendor.create! name: 'The Dainty Pizza', delivers: true, location: location
+%w[Tuesday Wednesday Thursday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 22*60, vendor: vendor
+end
 
 location = Location.create! street: "34 Rue du Docteur Paccard", town: "Chamonix", latitude: "45.9227033", longitude: "6.8691504"
 Vendor.create! name: 'La Maison du Burger', delivers: false, location: location
