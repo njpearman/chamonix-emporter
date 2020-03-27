@@ -1,6 +1,6 @@
 class ContactChannel < ApplicationRecord
-  NAMES = %w(email telephone website whatsapp facebook)
-
+  NAMES = %w(email facebook telephone website whatsapp)
+    
   NAMES.each { |name| const_set name.to_s.upcase.to_sym, name }
 
   belongs_to :vendor
