@@ -35,7 +35,7 @@ header {
   text-align: center;
 }
 h1 {
-  margin: 0 0 1px;
+  margin: 0 0 10px;
   font-weight: normal;
 }
 h2 {
@@ -65,22 +65,12 @@ label {
   width: 49%;
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-th, td {
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  padding: 10px;
-}
-
 .title {
   display: block;
   margin: 0 0 5px;
-  color: #5b8ec8;
+  color: #000;
   text-decoration: none;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
 }
 .desc {
   font-size: 0.9rem;
@@ -158,4 +148,10 @@ th, td {
 .opening {
   margin: 0 0 15px;
   font-size: 1.1rem;
+}
+
+.footer {
+  line-height: 1.7;
+  color: #777;
+  font-size: 0.8rem;
 }
