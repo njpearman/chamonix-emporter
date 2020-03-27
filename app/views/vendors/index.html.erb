@@ -55,7 +55,7 @@
   <div class="content">
     <% @vendors.each do |vendor| %>
       <div class="place<%= vendor.delivers ? " vendor--delivers" : "" %>">
-        <a href="#" class="title"><%= vendor.name %></a>
+        <div class="title"><%= vendor.name %></div>
         <% if vendor.open_today? %>
           <div class="opening">
             Open today
