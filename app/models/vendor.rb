@@ -1,6 +1,7 @@
 class Vendor < ApplicationRecord
   belongs_to :location
   has_many :weekday_time_ranges, dependent: :destroy
+  has_many :contact_channels, dependent: :destroy
   
   def open_today?
     today = Time.now.strftime("%A")

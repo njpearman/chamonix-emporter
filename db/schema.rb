@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_182035) do
+ActiveRecord::Schema.define(version: 2020_03_27_100639) do
+
+  create_table "contact_channels", force: :cascade do |t|
+    t.string "name"
+    t.string "label"
+    t.string "value"
+    t.integer "vendor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vendor_id"], name: "index_contact_channels_on_vendor_id"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "street"
@@ -40,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_182035) do
     t.index ["vendor_id"], name: "index_weekday_time_ranges_on_vendor_id"
   end
 
+  add_foreign_key "contact_channels", "vendors"
   add_foreign_key "vendors", "locations"
   add_foreign_key "weekday_time_ranges", "vendors"
 end

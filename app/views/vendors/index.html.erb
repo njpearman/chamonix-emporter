@@ -70,12 +70,11 @@
         <div class="meta">
           <%= render partial: "location", locals: { location: vendor.location, name: vendor.name } %>
           <div class="contact">
+            <% vendor.contact_channels.each do |contact| %>
             <div>
-              Tel: <a href="tel:0450967359">04 50 96 73 59</a>
+              <%= contact.name %>: <a href="<%= contact.value %>"><%= contact.label %></a>
             </div>
-            <div>
-              Website:<a href="http://www.thedaintypizza.com">www.thedaintypizza.com</a>
-            </div>
+          <% end %>
           </div>
         </div>
         

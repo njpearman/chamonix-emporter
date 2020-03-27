@@ -16,8 +16,10 @@ location = Location.create! street: "77 Place Edmond Desailloud",
 vendor = Vendor.create! name: 'Bighorn Bistro & Bakery',
                         delivers: false,
                         location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.bighornbistro.com", value: "https://www.bighornbistro.com", vendor: vendor
+ContactChannel.create! name: ContactChannel::WHATSAPP, label: "07 89 07 79 62", value: "https://web.whatsapp.com/send?phone=33789077962&text=Hello, i'd like to make a reservation", vendor: vendor
 %w[Monday Friday Saturday Sunday].each do |day|
-  WeekdayTimeRange.create! day: day, start_in_mins: 12*60, end_in_mins: 20*60, vendor: vendor
+  WeekdayTimeRange.create! day: day, start_in_mins: 17*60 + 30, end_in_mins: 20*60 + 30, vendor: vendor
 end
 p "Seeded #{vendor.name}"
 
