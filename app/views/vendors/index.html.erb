@@ -82,13 +82,9 @@
         <div class="space-between">
           <div class="delivers<%= vendor.delivers ? " open" : ""%>">Delivers: <%= vendor.delivers ? "✓" : "𐄂" %></div>
           <div class="open-days">
-            <span class="day open">M</span>
-            <span class="day">T</span>
-            <span class="day">O</span>
-            <span class="day">T</span>
-            <span class="day open">F</span>
-            <span class="day open">S</span>
-            <span class="day open">S</span>
+            <% %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day| %>
+              <span class="day<%= vendor.open_on?(day) ? " open" : "" %>"><%= day[0] %></span>
+          <% end %>
           </div>
         </div>
       </div>

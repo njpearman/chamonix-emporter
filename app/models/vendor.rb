@@ -1,6 +1,6 @@
 class Vendor < ApplicationRecord
   belongs_to :location
-  has_many :weekday_time_ranges
+  has_many :weekday_time_ranges, dependent: :destroy
   
   def open_today?
     today = Time.now.strftime("%A")
@@ -12,6 +12,11 @@ class Vendor < ApplicationRecord
     weekday_time_ranges.where(day: today).order(start_in_mins: :asc).map do |range|
       "#{format_time range.start_in_mins} - #{format_time range.end_in_mins}"
     end
+  end
+
+  def open_on?(day)
+    @open_days ||= weekday_time_ranges.select('day').distinct.pluck(:day)
+    @open_days.include?(day)
   end
    
   private
