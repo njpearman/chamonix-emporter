@@ -68,16 +68,16 @@
         <% end %>
 
         <div class="meta">
-          <%= render partial: "location", locals: { location: vendor.location, name: vendor.name } %>
           <div class="contact">
-            <% vendor.contact_channels.each do |contact| %>
-            <div>
+            <%= render partial: "location", locals: { location: vendor.location, name: vendor.name } %>
+          </div>
+          <% vendor.contact_channels.each do |contact| %>
+            <div class="contact">
               <%= contact.name %>: <a href="<%= contact.value %>"><%= contact.label %></a>
             </div>
           <% end %>
-          </div>
         </div>
-        
+
         <div class="space-between">
           <div class="delivers<%= vendor.delivers ? " open" : ""%>">Delivers: <%= vendor.delivers ? "✓" : "𐄂" %></div>
           <div class="open-days">

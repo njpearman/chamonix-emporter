@@ -18,8 +18,8 @@ vendor = Vendor.create! name: 'Bighorn Bistro & Bakery',
                         location: location
 ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.bighornbistro.com", value: "https://www.bighornbistro.com", vendor: vendor
 ContactChannel.create! name: ContactChannel::WHATSAPP, label: "07 89 07 79 62", value: "https://web.whatsapp.com/send?phone=33789077962&text=Hello, i'd like to make a reservation", vendor: vendor
-%w[Monday Friday Saturday Sunday].each do |day|
-  WeekdayTimeRange.create! day: day, start_in_mins: 17*60 + 30, end_in_mins: 20*60 + 30, vendor: vendor
+%w[Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 17*60, end_in_mins: 21*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
 
@@ -30,8 +30,10 @@ location = Location.create! street: "67 Promenade Marie Paradis",
 vendor = Vendor.create! name: 'The Dainty Pizza',
                         delivers: true,
                         location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.thedaintypizza.com", value: "https://www.thedaintypizza.com", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 96 73 59", value: "tel:0450967359", vendor: vendor
 %w[Wednesday Thursday Friday Saturday Sunday].each do |day|
-  WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 22*60, vendor: vendor
+  WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 23*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
 
@@ -42,6 +44,11 @@ location = Location.create! street: "34 Rue du Docteur Paccard",
 vendor = Vendor.create! name: 'La Maison du Burger',
                         delivers: false,
                         location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "Facebook", value: "https://www.facebook.com/LMBchamonix/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "09 62 24 87 10", value: "tel:0962248710", vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 10*60, end_in_mins: 18*60, vendor: vendor
+end
 p "Seeded #{vendor.name}"
 
 location = Location.create! street: "416 Rue Joseph Vallot",
@@ -49,7 +56,14 @@ location = Location.create! street: "416 Rue Joseph Vallot",
                             latitude: "45.9270337",
                             longitude: "6.8698641"
 vendor = Vendor.create! name: 'Hibou Deli',
-                        delivers: false,
+                        delivers: true,
                         location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "Facebook", value: "https://www.facebook.com/HIBOUDELI/", vendor: vendor
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.hibou-chamonix.com", value: "https://www.hibou-chamonix.com/", vendor: vendor
+ContactChannel.create! name: ContactChannel::EMAIL, label: "hibouchamonix@gmail.com", value: "mainto:hibouchamonix@gmail.com", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 48 43 05 20", value: "tel:0648430520", vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 11*60, end_in_mins: 13*60, vendor: vendor
+end
 p "Seeded #{vendor.name}"
-  
+
