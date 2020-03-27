@@ -67,3 +67,32 @@ ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 48 43 05 20",
 end
 p "Seeded #{vendor.name}"
 
+location = Location.create! street: "62, Avenue Ravanel Le Rouge",
+                            town: "Chamonix",
+                            latitude: "45.9201391",
+                            longitude: "6.8663457"
+vendor = Vendor.create! name: 'Annapurna',
+                        delivers: false,
+                        location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.annapurna-chamonix.com", value: "http://www.annapurna-chamonix.com/", vendor: vendor
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "Facebook", value: "https://www.facebook.com/annapurna.restaurant.chamonix/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 55 81 39", value: "tel:0450558139", vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 11*60+30, end_in_mins: 14*60+30, vendor: vendor
+  WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 23*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+location = Location.create! street: "215 Avenue Michel Croz",
+                            town: "Chamonix",
+                            latitude: "45.9231586",
+                            longitude: "6.8704148"
+vendor = Vendor.create! name: 'Thai To Go Chamonix',
+                        delivers: true,
+                        location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "Facebook", value: "https://www.facebook.com/ThaiToGoChamonix/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "09 53 09 52 80", value: "tel:0953095280", vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 10*60, end_in_mins: 22*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
