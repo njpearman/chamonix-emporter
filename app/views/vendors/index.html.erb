@@ -24,12 +24,13 @@
           </div>
           <% vendor.contact_channels.each do |contact| %>
             <div class="contact">
-              <%= contact.name %>: <a href="<%= contact.value %>"><%= contact.label %></a>
+              <span class="contact__label"><%= contact.name %>:</span>
+              <a href="<%= contact.value %>"><%= contact.label %></a>
             </div>
           <% end %>
         </div>
 
-        <div class="space-between">
+        <div class="place__footer space-between">
           <div class="delivers<%= vendor.delivers ? " open" : ""%>">Delivers: <%= vendor.delivers ? "✓" : "𐄂" %></div>
           <div class="open-days">
             <% %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day| %>

@@ -1,7 +1,6 @@
 // Place all the styles related to the Vendors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -12,18 +11,14 @@ body {
 }
 
 .page {
-  /* background: #fff; */
-  max-width: 450px;
+  max-width: 960px;
   margin: auto;
   text-align: center;
-  /* border: 1px solid #ddd; */
-  /* box-shadow: 0 0 25px #ccc; */
-  /* border-radius: 4px; */
 }
 
 a {
   text-decoration: none;
-  color: #5b8ec8;
+  color: #235186;
 }
 
 header {
@@ -49,28 +44,12 @@ h3 {
   font-weight: normal;
 }
 
-.filters {
-  display: flex;
-  padding: 15px;
-  margin: 0;
-  border-bottom: 1px solid #ddd;
-}
-.filters > div {
-  flex-basis: 33%;
-  flex-grow: 1;
-}
-
-label {
-  display: inline-block;
-  width: 49%;
-}
-
 .title {
   display: block;
-  margin: 0 0 5px;
+  margin: 0 0 15px;
   color: #000;
   text-decoration: none;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 .desc {
   font-size: 0.9rem;
@@ -81,18 +60,34 @@ label {
 
 .contact {
   margin: 0 0 10px;
+  &__label {
+    color: #777;
+  }
+}
+
+.content {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  margin: 0 0 30px;
 }
 
 .place {
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin: 0 0 15px;
-  border-radius: 3px;
   position: relative;
   background: #fff;
-}
-.place--delivers {
-  border-color: #5bc8af;
+  padding: 15px 15px 40px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  transition: all .3s;
+  &:hover {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+  }
+  &__footer {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+  }
 }
 
 .delivers {
@@ -115,15 +110,11 @@ label {
 }
 
 .open-days {
-  /* position: absolute;
-  bottom: 0;
-  left: 15px; */
   display: flex;
 }
 .day {
   display: inline-block;
   background: #c85b5b;
-  /* border: 1px solid #a84c4c; */
   width: 20px;
   height: 20px;
   color: #fff;
@@ -133,11 +124,9 @@ label {
   text-align: center;
   margin: 0 1px 0 0;
   text-shadow: 1px 1px rgba(0, 0, 0, .1);
-  /* opacity: .7; */
 }
 .open {
   background: #5bc8af;
-  /* border-color: #3a8b78; */
 }
 
 .meta {
@@ -154,4 +143,5 @@ label {
   line-height: 1.7;
   color: #777;
   font-size: 0.8rem;
+  margin: 0 0 30px;
 }
