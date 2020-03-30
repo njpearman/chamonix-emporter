@@ -1,6 +1,7 @@
 // Place all the styles related to the Vendors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -68,6 +69,7 @@ h3 {
 .contact {
   margin: 0 0 10px;
   &__label {
+    text-transform: capitalize;
     color: #777;
   }
 }
@@ -129,9 +131,7 @@ h3 {
   margin: 0 1px 0 0;
   text-shadow: 1px 1px rgba(0, 0, 0, .1);
 }
-.open {
-  background: #5bc8af;
-}
+.open { background: #5bc8af; }
 
 .meta {
   font-size: 0.9rem;
@@ -152,3 +152,6 @@ h3 {
   font-size: 0.8rem;
   border-radius: 3px;
 }
+
+.open-text { color: #18846b; }
+.closed-text { color: #c85b5b; }

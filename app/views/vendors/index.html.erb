@@ -9,13 +9,13 @@
         <div class="title"><%= vendor.name %></div>
         <% if vendor.open_today? %>
           <div class="opening">
-            Open today
+            <span class="open-text">Open today</span>
             <% vendor.hours_for_today.each do |range| %>
               <div><%= range %></div>
             <% end %>
           </div>
         <% else %>
-          <div class="opening">Not opening today</div>
+          <div class="opening closed-text">Closed today</div>
         <% end %>
 
         <div class="meta">
@@ -24,7 +24,9 @@
           </div>
           <% vendor.contact_channels.each do |contact| %>
             <div class="contact">
-              <span class="contact__label"><%= contact.name %>:</span>
+              <span class="contact__label">
+                <i class="demo-icon icon-<%= contact.name %>" title="<%= contact.name %>"></i>
+              </span>
               <a href="<%= contact.value %>"><%= contact.label %></a>
             </div>
           <% end %>
