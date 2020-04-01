@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+```
+docker-compose down --rmi all  -v
+docker-compose build web
+docker-compose up
+docker-compose exec web bin/rails db:migrate db:seed
+```
