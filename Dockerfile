@@ -1,4 +1,4 @@
-FROM ruby:2.6
+FROM ruby:2.6.6
 LABEL maintainer="n.pearman@gmail.com"
 
 # Produces warning that can be ignored:
