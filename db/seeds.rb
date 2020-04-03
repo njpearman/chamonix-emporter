@@ -72,7 +72,7 @@ location = Location.create! street: "62, Avenue Ravanel Le Rouge",
                             latitude: "45.9201391",
                             longitude: "6.8663457"
 vendor = Vendor.create! name: 'Annapurna',
-                        delivers: false,
+                        delivers: true,
                         location: location
 ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Facebook", value: "https://www.facebook.com/annapurna.restaurant.chamonix/", vendor: vendor
 ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.annapurna-chamonix.com", value: "http://www.annapurna-chamonix.com/", vendor: vendor
@@ -146,5 +146,68 @@ ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 91 52 06",
 ContactChannel.create! name: ContactChannel::EMAIL, label: "ledelicechamonix@gmail.com", value: "mailto:ledelicechamonix@gmail.com", vendor: vendor
 %w[Friday Saturday Sunday].each do |day|
   WeekdayTimeRange.create! day: day, start_in_mins: 12*60, end_in_mins: 18*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "87 rue des moulins",
+                            town: "Chamonix",
+                            latitude: "45.92443",
+                            longitude: "6.87045"
+vendor = Vendor.create! name: 'Munchie',
+                        delivers: false,
+                        location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.munchie.fr", value: "http://www.munchie.fr/", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Facebook", value: "https://www.facebook.com/MunchieCuisineEtBar/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 53 45 41", value: "tel:0450534541", vendor: vendor
+%w[Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 16*60, end_in_mins: 21*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "129 Route de Taconnaz",
+                            town: "Les Houches",
+                            latitude: "45.8970978",
+                            longitude: "6.8224897"
+vendor = Vendor.create! name: 'Artisan sushi',
+                        delivers: false,
+                        location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.artisansushi.com", value: "http://www.artisansushi.com/", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Facebook", value: "https://www.facebook.com/artisansushichamonix", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 56 70 71 08", value: "tel:0656707108", vendor: vendor
+%w[Wednesday Thursday Friday Saturday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 17*60, end_in_mins: 20*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "288 rue josephe vallot",
+                            town: "Chamonix",
+                            latitude: "45.927218",
+                            longitude: "6.870148"
+vendor = Vendor.create! name: 'Satsuki',
+                        delivers: false,
+                        location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.rakuichi.eu", value: "https://www.rakuichi.eu/", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Facebook", value: "https://www.facebook.com/satsuki.chamonix/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "09 63 51 81 80", value: "tel:0963518180", vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 11*60, end_in_mins: 17*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "109 rue des moulins",
+                            town: "Chamonix",
+                            latitude: "45.9239859",
+                            longitude: "6.870047"
+vendor = Vendor.create! name: 'Pizzeria des Moulins',
+                        delivers: true,
+                        location: location
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Facebook", value: "https://www.facebook.com/pizzeriadesmoulins/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 70 68 99 82", value: "tel:0670689982", vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 11*60 + 30, end_in_mins: 20*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
