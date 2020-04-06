@@ -211,3 +211,35 @@ ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 70 68 99 82",
   WeekdayTimeRange.create! day: day, start_in_mins: 11*60 + 30, end_in_mins: 20*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "27 Place des Seracs",
+                            town: "Chamonix",
+                            latitude: "45.9129741",
+                            longitude: "6.853036"
+vendor = Vendor.create! name: 'Bar pizzeria les pelarnis',
+                        delivers: false,
+                        location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "bar-les-pelarnis.business.site", value: "https://bar-les-pelarnis.business.site/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 89 79 85", value: "tel:0450897985", vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 11*60, end_in_mins: 13*60, vendor: vendor
+  WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 20*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "1486 Route des Praz",
+                            town: "Chamonix",
+                            latitude: "45.9398511",
+                            longitude: "6.8837126"
+vendor = Vendor.create! name: 'Le Petit Social',
+                        delivers: false,
+                        location: location
+# people can drive up and stay in their cars if they want
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Facebook", value: "https://www.facebook.com/Le-Petit-Social-176633812916236/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 72 11 96 19", value: "tel:0672119619", vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 8*60, end_in_mins: 12*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
