@@ -3,6 +3,9 @@ class Vendor < ApplicationRecord
   has_many :weekday_time_ranges, dependent: :destroy
   has_many :contact_channels, dependent: :destroy
   
+  scope :delivers, -> { where(delivers: true) }
+  scope :on, ->(day) { joins(:weekday_time_ranges).merge(WeekdayTimeRange.on(day)) }
+  
   def open_today?
     today = Time.now.strftime("%A")
     weekday_time_ranges.where(day: today).any?

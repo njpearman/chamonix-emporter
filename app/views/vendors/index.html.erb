@@ -4,6 +4,11 @@
     <h2>Where you can get take away and delivery, and when those places are open.</h2>
   </header>
   <div class="content">
+    <div class="filters">
+      <%= link_to "Open today", root_path(filters: filter_toggle_for(filter: "open", filters: @filters)), class: filter_class(filter: "open", filters: @filters) %>
+      <%= link_to "Delivers", root_path(filters: filter_toggle_for(filter: "delivers", filters: @filters)), class: filter_class(filter: "delivers", filters: @filters) %>
+      <%= link_to "Clear", root_path, class: "btn" %>
+    </div>
     <% @vendors.each do |vendor| %>
       <div class="place<%= vendor.delivers ? " vendor--delivers" : "" %>">
         <div class="title"><%= vendor.name %></div>
