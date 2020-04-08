@@ -31,7 +31,7 @@ class Vendor < ApplicationRecord
   def self.filtered_by(filters:)
     unhandled_filters = filters - FILTER_SCOPES.keys
 
-    raise "Unhandled vendor filters [#{unhandled_filters}]" if unhandled_filters.any?
+    raise "Unhandled vendor filters [#{unhandled_filters.join(",")}]" if unhandled_filters.any?
 
     filters.inject(Vendor.all) do |composite_scope, filter|
       FILTER_SCOPES[filter].call(composite_scope)
