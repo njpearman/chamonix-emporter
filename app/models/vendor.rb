@@ -28,7 +28,7 @@ class Vendor < ApplicationRecord
     @open_days.include?(day)
   end
    
-  def self.scopes_for(filters:)
+  def self.filtered_by(filters:)
     unhandled_filters = filters - FILTER_SCOPES.keys
 
     raise "Unhandled vendor filters [#{unhandled_filters}]" if unhandled_filters.any?
