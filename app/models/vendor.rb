@@ -23,6 +23,21 @@ class Vendor < ApplicationRecord
     @open_days.include?(day)
   end
    
+  def self.scopes_for(filters:)
+    filter_scopes = {
+      "open" => ->(scoped) { scoped.on(Time.now.strftime("%A")) },
+      "delivers" => ->(scoped) { scoped.delivers }
+    }
+
+    unhandled_filters = filters - filter_scopes.keys
+
+    raise "Unhandled vendor filters [#{unhandled_filters}]" if unhandled_filters.any?
+
+    filters.inject(Vendor.all) do |scope, filter|
+      filter_scopes[filter].call(scope)
+    end
+  end
+
   private
 
   def format_time(minutes_of_day)
