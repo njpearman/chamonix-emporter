@@ -42,8 +42,6 @@ RUN mv node_modules ..
 
 COPY . /usr/src/app/
 
-RUN which node
-
 RUN RAILS_ENV=production bin/rails assets:precompile
 
 ENTRYPOINT ["./bin/docker-entrypoint.sh"]

@@ -1,19 +1,13 @@
 version: '3'
 
 services:
-   nginx:
-     image: reverseproxy
-     ports:
-       - "80:80"
   web:
-    image: houches/shopping_list_web:prod
+    image: houches/chamonix-take-away_web:prod
     ports:
-      - "80:3000"
+      - "3000:3000"
     env_file:
       - .env/production/web
       - .env/production/database
-  redis:
-    image: redis
   database:
     image: postgres
     env_file:
@@ -21,7 +15,7 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
   db-migrator:
-    image: houches/shopping_list_web:prod
+    image: houches/chamonix-take-away_web:prod
     command: ["bin/wait-for", "--timeout=300", "database:5432", "--", "bin/rails", "db:migrate"]
     env_file:
       - .env/production/database
