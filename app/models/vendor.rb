@@ -1,4 +1,9 @@
 class Vendor < ApplicationRecord
+  FILTER_SCOPES = {
+    "open" => ->(scoped) { scoped.on(Time.now.strftime("%A")) },
+    "delivers" => ->(scoped) { scoped.delivers }
+  }
+
   belongs_to :location
   has_many :weekday_time_ranges, dependent: :destroy
   has_many :contact_channels, dependent: :destroy
@@ -24,17 +29,12 @@ class Vendor < ApplicationRecord
   end
    
   def self.scopes_for(filters:)
-    filter_scopes = {
-      "open" => ->(scoped) { scoped.on(Time.now.strftime("%A")) },
-      "delivers" => ->(scoped) { scoped.delivers }
-    }
-
-    unhandled_filters = filters - filter_scopes.keys
+    unhandled_filters = filters - FILTER_SCOPES.keys
 
     raise "Unhandled vendor filters [#{unhandled_filters}]" if unhandled_filters.any?
 
-    filters.inject(Vendor.all) do |scope, filter|
-      filter_scopes[filter].call(scope)
+    filters.inject(Vendor.all) do |composite_scope, filter|
+      FILTER_SCOPES[filter].call(composite_scope)
     end
   end
 
