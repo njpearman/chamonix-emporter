@@ -14,7 +14,19 @@ services:
       - .env/development/database
     environment:
       - WEBPACKER_DEV_SERVER_HOST=webpack-dev-server
-
+  webpack-dev-server:
+    build: .
+    command: ./bin/webpack-dev-server
+    ports:
+      - "3035:3035"
+    volumes:
+      - .:/usr/src/app
+      - gem_cache:/gems
+    env_file:
+      - .env/development/web
+      - .env/development/database
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
 volumes:
   db_data:
   gem_cache:
