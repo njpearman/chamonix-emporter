@@ -235,8 +235,8 @@ location = Location.create! street: "1486 Route des Praz",
                             longitude: "6.8837126"
 vendor = Vendor.create! name: 'Le Petit Social',
                         delivers: false,
-                        location: location
-# people can drive up and stay in their cars if they want
+                        location: location,
+                        information: "Customers can drive up and stay in their cars if they want"
 ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Le-Petit-Social", value: "https://www.facebook.com/Le-Petit-Social-176633812916236/", vendor: vendor
 ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 72 11 96 19", value: "tel:0672119619", vendor: vendor
 %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
