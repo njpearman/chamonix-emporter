@@ -9,6 +9,7 @@
 Vendor.destroy_all
 Location.destroy_all
 
+
 location = Location.create! street: "77 Place Edmond Desailloud",
                             town: "Chamonix",
                             latitude: "45.9189243",
@@ -17,11 +18,13 @@ vendor = Vendor.create! name: 'Bighorn Bistro & Bakery',
                         delivers: false,
                         location: location
 ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.bighornbistro.com", value: "https://www.bighornbistro.com", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "bighornbistro", value: "https://www.facebook.com/bighornbistro/", vendor: vendor
 ContactChannel.create! name: ContactChannel::WHATSAPP, label: "07 89 07 79 62", value: "https://web.whatsapp.com/send?phone=33789077962&text=Hello, i'd like to make a reservation", vendor: vendor
 %w[Thursday Friday Saturday Sunday].each do |day|
   WeekdayTimeRange.create! day: day, start_in_mins: 17*60, end_in_mins: 21*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
+
 
 location = Location.create! street: "67 Promenade Marie Paradis",
                             town: "Chamonix",
@@ -31,11 +34,30 @@ vendor = Vendor.create! name: 'The Dainty Pizza',
                         delivers: true,
                         location: location
 ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.thedaintypizza.com", value: "https://www.thedaintypizza.com", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "thedainty", value: "https://www.facebook.com/thedainty/", vendor: vendor
 ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 96 73 59", value: "tel:0450967359", vendor: vendor
 %w[Wednesday Thursday Friday Saturday Sunday].each do |day|
   WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 23*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "269 Avenue de Courmayeur",
+                            town: "Chamonix",
+                            latitude: "45.9172788",
+                            longitude: "6.8676986"
+vendor = Vendor.create! name: 'Little Boxes',
+                        delivers: true,
+                        location: location,
+                        information: "⚠️ Reopens on Friday, April 9 "
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "Cham at home", value: "https://www.chamathome.com/pizza", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Facebook", value: "https://www.facebook.com/jamalchx/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 93 48 36", value: "tel:0450934836", vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 12*60, end_in_mins: 21*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
 
 location = Location.create! street: "34 Rue du Docteur Paccard",
                             town: "Chamonix",
@@ -50,6 +72,7 @@ ContactChannel.create! name: ContactChannel::TELEPHONE, label: "09 62 24 87 10",
   WeekdayTimeRange.create! day: day, start_in_mins: 10*60, end_in_mins: 18*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
+
 
 location = Location.create! street: "416 Rue Joseph Vallot",
                             town: "Chamonix",
@@ -67,6 +90,7 @@ ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 48 43 05 20",
 end
 p "Seeded #{vendor.name}"
 
+
 location = Location.create! street: "62, Avenue Ravanel Le Rouge",
                             town: "Chamonix",
                             latitude: "45.9201391",
@@ -82,6 +106,7 @@ ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 55 81 39",
   WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 23*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
+
 
 location = Location.create! street: "215 Avenue Michel Croz",
                             town: "Chamonix",
