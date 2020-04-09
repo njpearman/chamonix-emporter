@@ -4,9 +4,9 @@
     <h2><%= t ".strap" %></h2>
   </header>
   <div class="filters">
-    <%= link_to t(".filter_open"), root_path(filters: filter_toggle_for(filter: "open", filters: @filters)), class: filter_class(filter: "open", filters: @filters) %>
-    <%= link_to t(".filter_delivers"), root_path(filters: filter_toggle_for(filter: "delivers", filters: @filters)), class: filter_class(filter: "delivers", filters: @filters) %>
-    <%= link_to t(".filter_clear"), root_path, class: has_filter_class(filters: @filters) %>
+    <%= link_to t(".filter_open"), localized_path(filters: filter_toggle_for(filter: "open", filters: @filters)), class: filter_class(filter: "open", filters: @filters) %>
+    <%= link_to t(".filter_delivers"), localized_path(filters: filter_toggle_for(filter: "delivers", filters: @filters)), class: filter_class(filter: "delivers", filters: @filters) %>
+    <%= link_to t(".filter_clear"), localized_path, class: has_filter_class(filters: @filters) %>
   </div>
   <div class="content">
     <% @vendors.each do |vendor| %>
