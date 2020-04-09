@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root to: "vendors#index"
+  scope :locale do
+    resources :vendors
+  end
 
-  resources :vendors
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get ":locale", to: "vendors#index", as: :localized
+
+  root to: "vendors#index"
 end

@@ -1,0 +1,20 @@
+fr:
+  vendors:
+    index:
+      strap: "Where you can get take away and delivery, and when those places are open."
+      filter_open: "Open today"
+      filter_delivers: "Delivers"
+      filter_clear: "Clear"
+      open_today: "Open today"
+      closed_today: "Closed today"
+      delivers: "Delivers: %{icon}"
+  date:
+    days: 
+      sunday: "Dimanche"
+      monday: "Lundi"
+      tuesday: "Mardi"
+      wednesday: "Mercredi"
+      thursday: "Jeudi"
+      friday: "Vendredi"
+      saturday: "Samedi"    
+

@@ -1,6 +1,6 @@
 <div class="page">
   <header>
-    <h1>Cham take away</h1>
+    <h1>Cham take away <%= link_to "English", localized_path(locale: :en) %> <%= link_to "Francais", localized_path(locale: :fr) %></h1>
     <h2><%= t ".strap" %></h2>
   </header>
   <div class="filters">
