@@ -1,6 +1,6 @@
 class Vendor < ApplicationRecord
   FILTER_SCOPES = {
-    "open" => ->(scoped) { scoped.on(Time.now.strftime("%A")) },
+    "open" => ->(scoped) { scoped.open_today },
     "delivers" => ->(scoped) { scoped.delivers }
   }
 
@@ -9,7 +9,8 @@ class Vendor < ApplicationRecord
   has_many :contact_channels, dependent: :destroy
   
   scope :delivers, -> { where(delivers: true) }
-  scope :on, ->(day) { joins(:weekday_time_ranges).merge(WeekdayTimeRange.on(day)) }
+  scope :open_on, ->(day) { joins(:weekday_time_ranges).merge(WeekdayTimeRange.on(day)) }
+  scope :open_today, -> { open_on(Time.now.strftime("%A")) }
   
   def open_today?
     today = Time.now.strftime("%A")
