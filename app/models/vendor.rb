@@ -9,7 +9,7 @@ class Vendor < ApplicationRecord
   has_many :contact_channels, dependent: :destroy
   
   scope :delivers, -> { where(delivers: true) }
-  scope :open_on, ->(day) { joins(:weekday_time_ranges).merge(WeekdayTimeRange.on(day)) }
+  scope :open_on, ->(day) { joins(:weekday_time_ranges).merge(WeekdayTimeRange.on(day)).uniq }
   scope :open_today, -> { open_on(Time.now.strftime("%A")) }
   
   def open_today?
