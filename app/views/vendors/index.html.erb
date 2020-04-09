@@ -1,12 +1,12 @@
 <div class="page">
   <header>
     <h1>Cham take away</h1>
-    <h2>Where you can get take away and delivery, and when those places are open.</h2>
+    <h2><%= t ".strap" %></h2>
   </header>
   <div class="filters">
-    <%= link_to "Open today", root_path(filters: filter_toggle_for(filter: "open", filters: @filters)), class: filter_class(filter: "open", filters: @filters) %>
-    <%= link_to "Delivers", root_path(filters: filter_toggle_for(filter: "delivers", filters: @filters)), class: filter_class(filter: "delivers", filters: @filters) %>
-    <%= link_to "Clear", root_path, class: has_filter_class(filters: @filters) %>
+    <%= link_to t(".filter_open"), root_path(filters: filter_toggle_for(filter: "open", filters: @filters)), class: filter_class(filter: "open", filters: @filters) %>
+    <%= link_to t(".filter_delivers"), root_path(filters: filter_toggle_for(filter: "delivers", filters: @filters)), class: filter_class(filter: "delivers", filters: @filters) %>
+    <%= link_to t(".filter_clear"), root_path, class: has_filter_class(filters: @filters) %>
   </div>
   <div class="content">
     <% @vendors.each do |vendor| %>
@@ -14,13 +14,13 @@
         <div class="title"><%= vendor.name %></div>
         <% if vendor.open_today? %>
           <div class="opening">
-            <span class="open-text">Open today</span>
+            <span class="open-text"><%= t ".open_today" %></span>
             <% vendor.hours_for_today.each do |range| %>
               <div><%= range %></div>
             <% end %>
           </div>
         <% else %>
-          <div class="opening closed-text">Closed today</div>
+          <div class="opening closed-text"><%= t ".closed_today" %></div>
         <% end %>
 
         <% if vendor.information %>
@@ -44,10 +44,10 @@
         </div>
 
         <div class="place__footer space-between">
-          <div class="delivers<%= vendor.delivers ? " open" : ""%>">Delivers: <%= vendor.delivers ? "✓" : "𐄂" %></div>
+          <div class="delivers<%= vendor.delivers ? " open" : ""%>"><%= t ".delivers", icon: (vendor.delivers ? "✓" : "𐄂") %></div>
           <div class="open-days">
-            <% %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day| %>
-              <span class="day<%= vendor.open_on?(day) ? " open" : "" %>"><%= day[0] %></span>
+            <% Date::DAYNAMES.each do |day| %>
+              <span class="day<%= vendor.open_on?(day) ? " open" : "" %>"><%= t("date.days.#{day.downcase}")[0] %></span>
           <% end %>
           </div>
         </div>

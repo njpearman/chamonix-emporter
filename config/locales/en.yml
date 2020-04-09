@@ -30,4 +30,21 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  vendors:
+    index:
+      strap: "Where you can get take away and delivery, and when those places are open."
+      filter_open: "Open today"
+      filter_delivers: "Delivers"
+      filter_clear: "Clear"
+      open_today: "Open today"
+      closed_today: "Closed today"
+      delivers: "Delivers: %{icon}"
+  date:
+    days: 
+      sunday: "Sunday"
+      monday: "Monday"
+      tuesday: "Tuesday"
+      wednesday: "Wednesday"
+      thursday: "Thursday"
+      friday: "Friday"
+      saturday: "Saturday"    
