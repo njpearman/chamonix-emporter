@@ -32,8 +32,7 @@ a {
 }
 
 header {
-  padding: 15px 15px 37px;
-  /* margin: 0 0 10px; */
+  padding: 15px 15px 30px;
   text-align: center;
   color: #fff;
   text-shadow: 1px 1px 2px #000;
@@ -157,3 +156,39 @@ h3 {
 
 .open-text { color: #18846b; }
 .closed-text { color: #c85b5b; }
+
+
+.filters {
+  margin: 0 0 30px;
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 7px 10px;
+  color: #fff;
+  // text-shadow: 1px 1px 0 #0e2e52;
+  text-shadow: 1px 1px rgba(0, 0, 0, .2);
+  background: #235186;
+  border: 1px solid #3c74b4;
+  border-radius: 4px;
+  transition: all .3s;
+  &:hover {
+    background: #3b7eca;
+    border: 1px solid #61a0e9;
+  }
+  &.active {
+    background: #44a991;
+    border-color: #7decd2;
+    &:hover {
+      background: #c85b5b;
+      border-color: #e97d7d;
+    }
+  }
+  &--disabled {
+    opacity: .3;
+    cursor: default;
+    pointer-events: none;
+  }
+}

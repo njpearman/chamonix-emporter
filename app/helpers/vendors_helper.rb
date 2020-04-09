@@ -3,6 +3,10 @@ module VendorsHelper
     filters.include?(filter) ? "btn active" : "btn"
   end
 
+  def has_filter_class(filters:)
+    filters.empty? ? "btn btn--disabled" : "btn btn"
+  end
+
   def filter_toggle_for(filter: , filters:)
     if filters.include? filter
       logger.info "Removing #{filter}"
