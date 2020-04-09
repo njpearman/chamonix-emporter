@@ -33,7 +33,7 @@
           <div class="contact">
             <%= render partial: "location", locals: { location: vendor.location, name: vendor.name } %>
           </div>
-          <% vendor.contact_channels.each do |contact| %>
+          <% vendor.contact_channels.order(:name).each do |contact| %>
             <div class="contact">
               <span class="contact__label">
                 <i class="demo-icon icon-<%= contact.name %>" title="<%= contact.name %>"></i>
