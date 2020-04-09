@@ -164,13 +164,14 @@ location = Location.create! street: "Rue de l'Église",
                             longitude: "6.7965492"
 vendor = Vendor.create! name: 'Le Délice',
                         delivers: true,
-                        location: location
+                        location: location,
+                        information: "Pick up 16:00-19:00 | Delivery 19:00-20:00"
 ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.le-delice.info", value: "https://www.le-delice.info/", vendor: vendor
 ContactChannel.create! name: ContactChannel::TELEPHONE, label: "07 85 50 86 52", value: "tel:0785508652", vendor: vendor
-ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 91 52 06", value: "tel:0450915206", vendor: vendor
+# ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 91 52 06", value: "tel:0450915206", vendor: vendor
 ContactChannel.create! name: ContactChannel::EMAIL, label: "ledelicechamonix@gmail.com", value: "mailto:ledelicechamonix@gmail.com", vendor: vendor
 %w[Friday Saturday Sunday].each do |day|
-  WeekdayTimeRange.create! day: day, start_in_mins: 12*60, end_in_mins: 18*60, vendor: vendor
+  WeekdayTimeRange.create! day: day, start_in_mins: 16*60, end_in_mins: 20*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
 
