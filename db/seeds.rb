@@ -49,8 +49,8 @@ location = Location.create! street: "269 Avenue de Courmayeur",
 vendor = Vendor.create! name: 'Little Boxes',
                         delivers: true,
                         location: location,
-                        information: "⚠️ Reopens on Friday, April 9 "
-ContactChannel.create! name: ContactChannel::WEBSITE, label: "Cham at home", value: "https://www.chamathome.com/pizza", vendor: vendor
+                        information: "Delivers: Argentière - Les Houches"
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "Cham at home", value: "https://www.chamathome.com", vendor: vendor
 ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Facebook", value: "https://www.facebook.com/jamalchx/", vendor: vendor
 ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 93 48 36", value: "tel:0450934836", vendor: vendor
 %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
@@ -230,11 +230,14 @@ location = Location.create! street: "109 rue des moulins",
                             longitude: "6.870047"
 vendor = Vendor.create! name: 'Pizzeria des Moulins',
                         delivers: true,
-                        location: location
+                        location: location,
+                        information: "Delivery 6-7pm and 7:30-8:30pm
+                        Tines - Les Houches.
+                        Argentiere or Servoz can be arranged with a meeting place"
 ContactChannel.create! name: ContactChannel::FACEBOOK, label: "pizzeriadesmoulins", value: "https://www.facebook.com/pizzeriadesmoulins/", vendor: vendor
 ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 70 68 99 82", value: "tel:0670689982", vendor: vendor
 %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
-  WeekdayTimeRange.create! day: day, start_in_mins: 11*60 + 30, end_in_mins: 20*60, vendor: vendor
+  WeekdayTimeRange.create! day: day, start_in_mins: 14*60, end_in_mins: 17*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
 
