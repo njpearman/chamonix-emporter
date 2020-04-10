@@ -192,3 +192,24 @@ h3 {
     pointer-events: none;
   }
 }
+
+
+.lang {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+  svg {
+    display: block;
+    height: 16px;
+    border-radius: 2px;
+  }
+  a {
+    opacity: .5;
+    &.active {
+      opacity: 1;
+    }
+  }
+}

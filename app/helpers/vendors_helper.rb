@@ -15,4 +15,12 @@ module VendorsHelper
       [*filters, filter]
     end.join(",")
   end
+
+  def current_lang_class(locale:, current_locale:)
+    if current_locale
+      locale === current_locale ? "active" : ""
+    elsif locale === 'en'
+      "active"
+    end
+  end
 end
