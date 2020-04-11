@@ -47,7 +47,9 @@
           <div class="delivers<%= vendor.delivers ? " open" : ""%>"><%= t ".delivers", icon: (vendor.delivers ? "✓" : "𐄂") %></div>
           <div class="open-days">
             <% Date::DAYNAMES.each do |day| %>
-              <span class="day<%= vendor.open_on?(day) ? " open" : "" %>"><%= t("date.days.#{day.downcase}")[0] %></span>
+              <span class="day<%= vendor.open_on?(day) ? " open" : "" %>" title="<%= t("date.days.#{day.downcase}") %>">
+                <%= t("date.days.#{day.downcase}")[0] %>
+              </span>
           <% end %>
           </div>
         </div>
