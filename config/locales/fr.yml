@@ -1,10 +1,10 @@
 fr:
   vendors:
     index:
-      strap: "Où vous pouvez emporter et livrer, et quand ces lieux sont ouverts."
+      strap: "Oú pouvons nous trouver des plats à emporter ou à livrer et quels sont les horaires."
       filter_open: "Ouvert aujourd'hui"
       filter_delivers: "Livraison"
-      filter_clear: "Claire"
+      filter_clear: "Effacer"
       open_today: "Ouvert aujourd'hui"
       closed_today: "Fermé aujourd'hui"
       delivers: "Livraison: %{icon}"
