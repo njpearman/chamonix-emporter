@@ -281,7 +281,7 @@ location = Location.create! street: "150 chemin des avouilles",
                             town: "Chamonix",
                             latitude: "45.9166271",
                             longitude: "6.8532528"
-vendor = Vendor.create! name: 'Chamonix Miam',
+vendor = Vendor.create! name: 'Chamonixmiam',
                         delivers: true,
                         location: location,
                         information: "Good to order 1 day in advance
