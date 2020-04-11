@@ -1,20 +1,22 @@
 fr:
   vendors:
     index:
-      strap: "Where you can get take away and delivery, and when those places are open."
-      filter_open: "Open today"
-      filter_delivers: "Delivers"
-      filter_clear: "Clear"
-      open_today: "Open today"
-      closed_today: "Closed today"
-      delivers: "Delivers: %{icon}"
+      strap: "Où vous pouvez emporter et livrer, et quand ces lieux sont ouverts."
+      filter_open: "Ouvert aujourd'hui"
+      filter_delivers: "Livraison"
+      filter_clear: "Claire"
+      open_today: "Ouvert aujourd'hui"
+      closed_today: "Fermé aujourd'hui"
+      delivers: "Livraison: %{icon}"
+      footer_text: "Veuillez contacter notre %{email} si vous connaissez plus d'endroits ou si certaines informations sont erronées."
+      footer_created: "Créé par"
   date:
-    days: 
+    days:
       sunday: "Dimanche"
       monday: "Lundi"
       tuesday: "Mardi"
       wednesday: "Mercredi"
       thursday: "Jeudi"
       friday: "Vendredi"
-      saturday: "Samedi"    
+      saturday: "Samedi"
 
