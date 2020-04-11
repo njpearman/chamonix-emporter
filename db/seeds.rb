@@ -281,10 +281,11 @@ location = Location.create! street: "150 chemin des avouilles",
                             town: "Chamonix",
                             latitude: "45.9166271",
                             longitude: "6.8532528"
-vendor = Vendor.create! name: 'Chamonix Yum',
+vendor = Vendor.create! name: 'Chamonix Miam',
                         delivers: true,
                         location: location,
-                        information: "Good to order 1 day in advance"
+                        information: "Good to order 1 day in advance
+                        Delivers: Argentiere - Servoz"
 ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.chamonixmiam.com", value: "https://www.chamonixmiam.com/", vendor: vendor
 ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 47 40 67 70", value: "tel:0647406770", vendor: vendor
 %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
