@@ -99,8 +99,10 @@ vendor = Vendor.create! name: 'Annapurna',
                         delivers: true,
                         location: location
 ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.annapurna-chamonix.com", value: "http://www.annapurna-chamonix.com/", vendor: vendor
-ContactChannel.create! name: ContactChannel::FACEBOOK, label: "annapurna.restaurant.chamonix", value: "https://www.facebook.com/annapurna.restaurant.chamonix/", vendor: vendor
-ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 55 81 39", value: "tel:0450558139", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "1: annapurna.restaurant.chamonix", value: "https://www.facebook.com/annapurna.restaurant.chamonix/", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "2: annapurna2grill", value: "https://www.facebook.com/annapurna2grill/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "1: 04 50 55 81 39", value: "tel:0450558139", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "2: 06 28 51 76 03", value: "tel:0628517603", vendor: vendor
 %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
   WeekdayTimeRange.create! day: day, start_in_mins: 11*60+30, end_in_mins: 14*60+30, vendor: vendor
   WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 23*60, vendor: vendor
@@ -288,5 +290,36 @@ ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.chamonixmiam.c
 ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 47 40 67 70", value: "tel:0647406770", vendor: vendor
 %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
   WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 22*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "653 Av des Alpages",
+                            town: "Les Houches",
+                            latitude: "45.8956587",
+                            longitude: "6.8034433"
+vendor = Vendor.create! name: 'Restaurant Gandhi',
+                        delivers: false,
+                        location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.restaurantgandhi.fr", value: "http://www.restaurantgandhi.fr/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 54 63 96", value: "tel:0450546396", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 10 61 45 27", value: "tel:0610614527", vendor: vendor
+%w[Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 17*60, end_in_mins: 20*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "185 Route de l'Eglise",
+                            town: "Les Houches",
+                            latitude: "45.8912727",
+                            longitude: "6.7990408"
+vendor = Vendor.create! name: 'Pizzeria Lou Vio',
+                        delivers: false,
+                        location: location
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.restaurantgandhi.fr", value: "http://www.restaurantgandhi.fr/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 07 77 35 59", value: "tel:0607773559", vendor: vendor
+%w[Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 20*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
