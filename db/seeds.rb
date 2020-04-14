@@ -129,14 +129,12 @@ location = Location.create! street: "77 Pl. de la Fruitière",
                             longitude: "6.7864525"
 vendor = Vendor.create! name: 'Kitsch Inn',
                         delivers: true,
-                        location: location
+                        location: location,
+                        information: "Home deliveries only."
 ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.kitschinn.fr", value: "https://www.kitschinn.fr/", vendor: vendor
 ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 34 41 74", value: "tel:0450344174", vendor: vendor
-%w[Monday Tuesday Wednesday Thursday Friday].each do |day|
-  WeekdayTimeRange.create! day: day, start_in_mins: 16*60+30, end_in_mins: 20*60, vendor: vendor
-end
-%w[Saturday Sunday].each do |day|
-  WeekdayTimeRange.create! day: day, start_in_mins: 13*60, end_in_mins: 20*60, vendor: vendor
+%w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 16*60+30, end_in_mins: 20*60+30, vendor: vendor
 end
 p "Seeded #{vendor.name}"
 
