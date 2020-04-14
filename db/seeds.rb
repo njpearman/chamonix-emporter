@@ -317,7 +317,7 @@ location = Location.create! street: "185 Route de l'Eglise",
 vendor = Vendor.create! name: 'Pizzeria Lou Vio',
                         delivers: false,
                         location: location
-ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.restaurantgandhi.fr", value: "http://www.restaurantgandhi.fr/", vendor: vendor
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.tripadvisor.fr", value: "https://www.tripadvisor.com/Restaurant_Review-g651752-d7021504-Reviews-Pizza_Lou_Vio-Les_Houches_Chamonix_Haute_Savoie_Auvergne_Rhone_Alpes.html", vendor: vendor
 ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 07 77 35 59", value: "tel:0607773559", vendor: vendor
 %w[Friday Saturday Sunday].each do |day|
   WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 20*60, vendor: vendor
