@@ -22,7 +22,7 @@ export default class Map {
 
   build() {
     const container = document.getElementById(this.containerId)
-		const mapRepresentation = new google.maps.Map(container, {
+		this.mapRepresentation = new google.maps.Map(container, {
 			zoom: 12,
 			center: this.centreOn,
 			styles: this.style()
