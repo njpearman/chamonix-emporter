@@ -66,13 +66,20 @@ const geo = new Geolocation()
 map.addPreparedCallback(function setMarkers() {
   const vendors = document.querySelectorAll('.vendor')
 
+  const image = {
+    url: '/assets/pin.svg',
+    scaledSize: new google.maps.Size(16, 29),
+    origin: new google.maps.Point(0, 0),
+  };
+
   vendors.forEach(vendor => {
     console.log(`Marking up ${vendor.dataset.name} with position ${vendor.dataset.position}`)
     const parsedPosition = JSON.parse(vendor.dataset.position)
     const marker = new google.maps.Marker({
       position: new google.maps.LatLng(parsedPosition.lat, parsedPosition.lng),
       map: this.mapRepresentation,
-      title: vendor.dataset.name
+      title: vendor.dataset.name,
+      icon: image
     })
     marker.addListener('click', () => {
       map.mapRepresentation.setZoom(15)
@@ -86,7 +93,42 @@ map.addPreparedCallback(function setMarkers() {
 
 const start = () => {
   map.prepare()
-  geo.getLocation().then(() => geo.print())
+
+  const nearBtn = document.getElementById('sortNearest')
+  nearBtn.addEventListener('click', function getCoords(evt) {
+    evt.preventDefault()
+    this.classList.add('loading')
+    geo.getLocation()
+      .then(() => geo.print())
+      .then(() => this.classList.remove('loading'))
+      // Reload page with coors and let ruby do the work or filter with JS?
+      .then(() => {
+        const latLng = new google.maps.LatLng(geo.latitude, geo.longitude)
+        // Drop a pin at the user location
+        const marker = new google.maps.Marker({
+          position: latLng,
+          map: map.mapRepresentation,
+          draggable: true,
+          title: 'This is you!',
+        })
+        // Create a 1km circle around the user
+        const bufferCircle = new google.maps.Circle({
+          center: latLng,
+          radius: 1000, // meters
+          strokeColor: "#61a0e9",
+          strokeOpacity: 1,
+          strokeWeight: 1,
+          fillColor: "#61a0e9",
+          fillOpacity: 0.4,
+          map: map.mapRepresentation
+        })
+
+        // Move the circle after moving the pin
+        google.maps.event.addListener(marker, "dragend", (event) => {
+          bufferCircle.setCenter(event.latLng)
+        })
+      })
+  })
 }
 
 document.addEventListener("turbolinks:load", start)
