@@ -63,17 +63,24 @@ const chamonixValley = { lat: 45.917474, lng: 6.856516 }
 const map = new Map("map", chamonixValley)
 const geo = new Geolocation()
 
-map.addPreparedCallback(() => {
+map.addPreparedCallback(function setMarkers() {
   const vendors = document.querySelectorAll('.vendor')
 
   vendors.forEach(vendor => {
     console.log(`Marking up ${vendor.dataset.name} with position ${vendor.dataset.position}`)
-    // This is currently broken, probably because of a duff reference to the map
+    const parsedPosition = JSON.parse(vendor.dataset.position)
     const marker = new google.maps.Marker({
-      position: JSON.parse(vendor.dataset.position),
+      position: new google.maps.LatLng(parsedPosition.lat, parsedPosition.lng),
       map: this.mapRepresentation,
       title: vendor.dataset.name
-    });
+    })
+    marker.addListener('click', () => {
+      map.mapRepresentation.setZoom(15)
+      map.mapRepresentation.setCenter(marker.getPosition())
+      // Scroll to and hightlight vendor?
+      // Add popup?
+    })
+
   })
 })
 

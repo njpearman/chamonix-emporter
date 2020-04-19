@@ -9,11 +9,11 @@ export default class Map {
   addPreparedCallback(callback) {
     this.preparedCallbacks.push(callback.bind(this))
   }
-  
+
   prepared() {
     this.preparedCallbacks.forEach(callback => callback())
   }
-  
+
   prepare() {
     if(!this.mapsScriptLoaded) {
       var script = document.createElement('script')
@@ -44,73 +44,82 @@ export default class Map {
   style() {
 		return [
       {
-        "featureType": "water",
+        "featureType": "poi.attraction",
         "stylers": [
-            { "visibility": "on" },
-            { "color": "#b5cbe4" }
-          ]
-        },
-        {
-          "featureType": "landscape",
-          "stylers": [
-            { "color": "#efefef" }
-          ]
-        },
-        {
-          "featureType": "road.highway",
-          "elementType": "geometry",
-          "stylers": [
-            { "visibility": "off" }
-          ]
-        },
-        {
-          "featureType": "road.arterial",
-          "elementType": "geometry",
-          "stylers": [
-            { "color": "#bdcdd3" }
-          ]
-        },
-        {
-          "featureType": "road.local",
-          "elementType": "geometry",
-          "stylers": [
-            { "color": "#ffffff" }
-          ]
-        },
-        {
-          "featureType": "poi.park",
-          "elementType": "geometry",
-          "stylers": [
-            { "color": "#e3eed3" }
-          ]
-        },
-        {
-          "featureType": "administrative",
-          "stylers": [
-            { "visibility": "on" },
-            { "lightness": 45 }
-          ]
-        },
-        {
-          "featureType": "road",
-          "elementType": "labels",
-          "stylers": [
-            {"visibility": "off"}
-          ]
-        },
-        {
-          "featureType": "poi",
-          "elementType": "labels",
-          "stylers": [
-            { "visibility": "off" }
-          ]
-        },
-        {
-          "featureType": "road",
-          "stylers": [
-            { "lightness": 20 }
-          ]
-        }
-      ]
+          {
+            "visibility": "off"
+          }
+        ]
+      }
+    ]
+    //   {
+    //     "featureType": "water",
+    //     "stylers": [
+    //         { "visibility": "on" },
+    //         { "color": "#b5cbe4" }
+    //       ]
+    //     },
+    //     {
+    //       "featureType": "landscape",
+    //       "stylers": [
+    //         { "color": "#efefef" }
+    //       ]
+    //     },
+    //     {
+    //       "featureType": "road.highway",
+    //       "elementType": "geometry",
+    //       "stylers": [
+    //         { "visibility": "off" }
+    //       ]
+    //     },
+    //     {
+    //       "featureType": "road.arterial",
+    //       "elementType": "geometry",
+    //       "stylers": [
+    //         { "color": "#bdcdd3" }
+    //       ]
+    //     },
+    //     {
+    //       "featureType": "road.local",
+    //       "elementType": "geometry",
+    //       "stylers": [
+    //         { "color": "#ffffff" }
+    //       ]
+    //     },
+    //     {
+    //       "featureType": "poi.park",
+    //       "elementType": "geometry",
+    //       "stylers": [
+    //         { "color": "#e3eed3" }
+    //       ]
+    //     },
+    //     {
+    //       "featureType": "administrative",
+    //       "stylers": [
+    //         { "visibility": "on" },
+    //         { "lightness": 45 }
+    //       ]
+    //     },
+    //     {
+    //       "featureType": "road",
+    //       "elementType": "labels",
+    //       "stylers": [
+    //         {"visibility": "off"}
+    //       ]
+    //     },
+    //     {
+    //       "featureType": "poi",
+    //       "elementType": "labels",
+    //       "stylers": [
+    //         { "visibility": "off" }
+    //       ]
+    //     },
+    //     {
+    //       "featureType": "road",
+    //       "stylers": [
+    //         { "lightness": 20 }
+    //       ]
+    //     }
+    //   ]
   }
 }
