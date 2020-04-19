@@ -2,7 +2,17 @@ export default class Map {
   constructor(containerId, centreOn) {
     this.containerId = containerId
     this.centreOn = centreOn
+    this.preparedCallbacks = []
+    this.addPreparedCallback(this.build)
 	}
+
+  addPreparedCallback(callback) {
+    this.preparedCallbacks.push(callback.bind(this))
+  }
+  
+  prepared() {
+    this.preparedCallbacks.forEach(callback => callback())
+  }
   
   prepare() {
     if(!this.mapsScriptLoaded) {
@@ -11,9 +21,9 @@ export default class Map {
       script.type = 'text/javascript'
       script.setAttribute('async', null)
       script.setAttribute('defer', null)
-      const tightBuild = this.build.bind(this)
+      const prepared = this.prepared.bind(this)
       window.mapsReady = () => {
-        tightBuild()
+        prepared()
       }
       document.getElementsByTagName('body')[0].appendChild(script)
       this.mapsScriptLoaded = true
