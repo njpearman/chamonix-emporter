@@ -14,8 +14,8 @@
   <div id="map" class="map"></div>
   <div class="content">
     <% @vendors.each do |vendor| %>
-      <div class="place<%= vendor.delivers ? " vendor--delivers" : "" %>">
-        <div class="title"><%= vendor.name %></div>
+      <div class="vendor place<%= vendor.delivers ? " vendor--delivers" : "" %>" data-name="<%= vendor.name %>" data-position="<%= vendor.location.position.to_json %>">
+        <div class="title" ><%= vendor.name %></div>
         <% if vendor.open_today? %>
           <div class="opening">
             <span class="open-text"><%= t ".open_today" %></span>
