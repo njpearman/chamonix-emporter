@@ -1,4 +1,5 @@
 import Map from './map'
+import DistanceCalculator from './distanceCalculator'
 
 class TakeawayLocations {
   constructor(locations) {
@@ -91,25 +92,12 @@ map.addPreparedCallback(function setMarkers() {
   })
 })
 
-const calculateDistanceBetween = (position, source) => {
-	if ((position.lat === source.lat) && (position.lng === source.lng)) {
-		return 0
-	}
-
-	var radlat1 = Math.PI * position.lat/180
-	var radlat2 = Math.PI * source.lat/180
-	var theta = position.lng - source.lng
-	var radtheta = Math.PI * theta/180
-	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta)
-	if (dist > 1) {
-		dist = 1
-	}
-	return Math.acos(dist) * 180/Math.PI * 60 * 1.1515 * 1.609344
-}
+let distanceCalculator = new DistanceCalculator(chamonixValley)
 
 const initialDistances = () => {
 	document.querySelectorAll('.vendor').forEach(vendor => {
-		vendor.dataset.distance = calculateDistanceBetween(JSON.parse(vendor.dataset.position), chamonixValley)
+    const distance = distanceCalculator.distanceTo(JSON.parse(vendor.dataset.position))
+    vendor.dataset.distance = distance
 		console.log(`${vendor.dataset.name} is ${vendor.dataset.distance} from Chamonix`)
 	})
 }
