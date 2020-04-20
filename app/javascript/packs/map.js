@@ -32,6 +32,7 @@ export default class Map {
 
   build() {
     const container = document.getElementById(this.containerId)
+
 		this.mapRepresentation = new google.maps.Map(container, {
 			zoom: 12,
 			center: this.centreOn,
@@ -45,81 +46,8 @@ export default class Map {
 		return [
       {
         "featureType": "poi.attraction",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
+        "stylers": [ { "visibility": "off" } ]
       }
     ]
-    //   {
-    //     "featureType": "water",
-    //     "stylers": [
-    //         { "visibility": "on" },
-    //         { "color": "#b5cbe4" }
-    //       ]
-    //     },
-    //     {
-    //       "featureType": "landscape",
-    //       "stylers": [
-    //         { "color": "#efefef" }
-    //       ]
-    //     },
-    //     {
-    //       "featureType": "road.highway",
-    //       "elementType": "geometry",
-    //       "stylers": [
-    //         { "visibility": "off" }
-    //       ]
-    //     },
-    //     {
-    //       "featureType": "road.arterial",
-    //       "elementType": "geometry",
-    //       "stylers": [
-    //         { "color": "#bdcdd3" }
-    //       ]
-    //     },
-    //     {
-    //       "featureType": "road.local",
-    //       "elementType": "geometry",
-    //       "stylers": [
-    //         { "color": "#ffffff" }
-    //       ]
-    //     },
-    //     {
-    //       "featureType": "poi.park",
-    //       "elementType": "geometry",
-    //       "stylers": [
-    //         { "color": "#e3eed3" }
-    //       ]
-    //     },
-    //     {
-    //       "featureType": "administrative",
-    //       "stylers": [
-    //         { "visibility": "on" },
-    //         { "lightness": 45 }
-    //       ]
-    //     },
-    //     {
-    //       "featureType": "road",
-    //       "elementType": "labels",
-    //       "stylers": [
-    //         {"visibility": "off"}
-    //       ]
-    //     },
-    //     {
-    //       "featureType": "poi",
-    //       "elementType": "labels",
-    //       "stylers": [
-    //         { "visibility": "off" }
-    //       ]
-    //     },
-    //     {
-    //       "featureType": "road",
-    //       "stylers": [
-    //         { "lightness": 20 }
-    //       ]
-    //     }
-    //   ]
   }
 }

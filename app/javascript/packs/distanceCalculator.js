@@ -1,4 +1,5 @@
 const DISTANCE_BETWEEN_LATITUDE_IN_MILES = 60 * 1.1515
+const KILOMETRES_IN_A_MILE = 1.609344
 
 export default class DistanceCalculator {
   constructor(centre) {
@@ -24,6 +25,6 @@ export default class DistanceCalculator {
     if (dist > 1) {
       dist = 1
     }
-    return Math.acos(dist) * 180/Math.PI * DISTANCE_BETWEEN_LATITUDE_IN_MILES * 1.609344
+    return Math.acos(dist) * 180/Math.PI * DISTANCE_BETWEEN_LATITUDE_IN_MILES * KILOMETRES_IN_A_MILE 
   }
 }
