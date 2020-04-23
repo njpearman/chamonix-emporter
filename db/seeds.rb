@@ -323,3 +323,66 @@ ContactChannel.create! name: ContactChannel::TELEPHONE, label: "06 07 77 35 59",
   WeekdayTimeRange.create! day: day, start_in_mins: 18*60, end_in_mins: 20*60, vendor: vendor
 end
 p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "31 Rue Whymper",
+                            town: "Chamonix",
+                            latitude: "45.9236704",
+                            longitude: "6.8694594"
+vendor = Vendor.create! name: 'MUMMA',
+                        delivers: false,
+                        location: location,
+                        information: "Pre-orders must be made before 4pm on the day."
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "www.mumma.fr/takeaway-popup-en", value: "https://www.mumma.fr/takeaway-popup-en", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "MummaRestaurant", value: "https://www.facebook.com/MummaRestaurant/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 53 05 08‬", value: "tel:0450530508‬", vendor: vendor
+%w[Friday Saturday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 18*60+30, end_in_mins: 19*60+45, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+location = Location.create! street: "1124, route d'Argentière",
+                            town: "Argentiere",
+                            latitude: "45.9674269",
+                            longitude: "6.9135439"
+vendor = Vendor.create! name: 'La Remise',
+                        delivers: true,
+                        location: location,
+                        information: "Varying opening times each week
+                        Checkout Facebook for the latest info"
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "La Remise", value: "https://www.facebook.com/lapopuproti/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "07 71 63 49 37", value: "tel:0771634937", vendor: vendor
+%w[Wednesday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 9*60, end_in_mins: 11*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+#
+# May 1st
+#
+
+location = Location.create! street: "116 rue des moulins",
+                            town: "Chamonix",
+                            latitude: "45.9246825",
+                            longitude: "6.8683913"
+vendor = Vendor.create! name: 'Cool Cats',
+                        delivers: true,
+                        location: location,
+                        information: "OPENS 1st OF MAY!
+                        Home delivery only."
+ContactChannel.create! name: ContactChannel::WEBSITE, label: "coolcatsrestaurants.com", value: "http://coolcatsrestaurants.com/", vendor: vendor
+ContactChannel.create! name: ContactChannel::FACEBOOK, label: "Cool Cats Chamonix", value: "https://www.facebook.com/coldcats.fr/", vendor: vendor
+ContactChannel.create! name: ContactChannel::TELEPHONE, label: "04 50 34 16 39", value: "tel:0450341639", vendor: vendor
+# %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].each do |day|
+%w[].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 12*60, end_in_mins: 19*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
+
+
+#
+# Opens on May 1st
+# Restaurant Les Lanchers
+# https://www.facebook.com/events/782740765466418/
