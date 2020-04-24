@@ -105,6 +105,7 @@ const initialDistances = () => {
 const start = () => {
   map.prepare()
 
+  /*
   const nearBtn = document.getElementById('sortNearest')
   nearBtn.addEventListener('click', function getCoords(evt) {
     evt.preventDefault()
@@ -140,6 +141,9 @@ const start = () => {
         })
       })
   })
+
+  */
+
 }
 
 document.addEventListener("turbolinks:load", start)
