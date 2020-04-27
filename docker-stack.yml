@@ -2,9 +2,8 @@ version: '3'
 
 services:
   web:
-    image: houches/chamonix-take-away_web:prod
+    image: houches/chamonix-takeaway:prod
     ports:
       - "3000:3000"
     env_file:
       - .env/production/web
-      - .env/production/database
