@@ -31,5 +31,7 @@ module ChamonixTakeaway
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.google_maps_key = ENV['GOOGLE_MAPS_KEY'] || '' 
   end
 end

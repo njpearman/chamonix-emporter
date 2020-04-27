@@ -17,7 +17,7 @@ export default class Map {
   prepare() {
     if(!this.mapsScriptLoaded) {
       var script = document.createElement('script')
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_KEY}&libraries=places&callback=mapsReady`
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${Constants.GOOGLE_MAPS_KEY}&libraries=places&callback=mapsReady`
       script.type = 'text/javascript'
       script.setAttribute('async', null)
       script.setAttribute('defer', null)
