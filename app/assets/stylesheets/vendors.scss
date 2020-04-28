@@ -14,7 +14,7 @@ body {
 
 @media (min-width: 500px) {
   body {
-    background: url(mont-blanc-bw.jpg);
+    background: asset-url('mont-blanc-bw.jpg');
     background-size: cover;
     background-attachment: fixed;
   }
