@@ -1,5 +1,6 @@
 import Map from './map'
 import DistanceCalculator from './distanceCalculator'
+import PinImage from '../images/pin.svg'
 
 class TakeawayLocations {
   constructor(locations) {
@@ -68,7 +69,7 @@ map.addPreparedCallback(function setMarkers() {
   const vendors = document.querySelectorAll('.vendor')
 
   const image = {
-    url: '/assets/pin.svg',
+    url: PinImage,
     scaledSize: new google.maps.Size(16, 29),
     origin: new google.maps.Point(0, 0),
   };
