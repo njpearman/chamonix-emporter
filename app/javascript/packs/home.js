@@ -58,7 +58,7 @@ class Geolocation {
 }
 
 console.log("Hello, takeaway!")
-console.log("Key is: " + process.env.GOOGLE_MAPS_KEY)
+console.log("Key is: " + Constants.GOOGLE_MAPS_KEY)
 
 const chamonixValley = { lat: 45.917474, lng: 6.856516 }
 
