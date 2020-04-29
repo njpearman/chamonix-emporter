@@ -28,6 +28,8 @@ export default class extends Controller {
           icon: image
         })
 
+        map = this
+
         marker.addListener('click', () => {
           map.mapRepresentation.setZoom(15)
           map.mapRepresentation.setCenter(marker.getPosition())
@@ -36,10 +38,9 @@ export default class extends Controller {
         })
       })
     })
-
-    this.map.prepare()
   }
 
   connect() {
+    this.map.prepare()
   }
 }
