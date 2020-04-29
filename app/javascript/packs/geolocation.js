@@ -21,6 +21,11 @@ export default class Geolocation {
     })
   }
 
+  setLocation(latitude, longitude) {
+    this.latitude = latitude
+    this.longitude = longitude
+  }
+
   showPosition(position) {
     this.message = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`
     this.latitude = position.coords.latitude
