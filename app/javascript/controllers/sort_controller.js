@@ -47,16 +47,12 @@ export default class extends Controller {
         // Move the circle after moving the pin
         google.maps.event.addListener(marker, "dragend", (event) => {
           bufferCircle.setCenter(event.latLng)
+          // recalculate distances, re-render map, re-order nearest
         })
 
         // now need to calculate distances of each vendor from the geo location
-        let distanceCalculator = new DistanceCalculator({ lat: geo.latitude, lng: geo.longitude })
-
-        document.querySelectorAll('.vendor').forEach(vendor => {
-          const distance = distanceCalculator.distanceTo(JSON.parse(vendor.dataset.position))
-          vendor.dataset.distance = distance
-          console.log(`${vendor.dataset.name} is ${vendor.dataset.distance} from Chamonix`)
-        })
+        new DistanceCalculator({ lat: geo.latitude, lng: geo.longitude })
+          .distancesForEach('.vendor')
       })
     .then(() => {
       // do the sorting of the list
