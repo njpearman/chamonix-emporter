@@ -386,3 +386,16 @@ p "Seeded #{vendor.name}"
 # Opens on May 1st
 # Restaurant Les Lanchers
 # https://www.facebook.com/events/782740765466418/
+
+location = Location.create! street: "81 Avenue des Alpages",
+                            town: "Les Houches",
+                            latitude: "45.892508",
+                            longitude: "6.800399"
+vendor = Vendor.create! name: 'Le Solerey',
+                        delivers: false,
+                        information: "Takeaway beer and wine only",
+                        location: location
+%w[Wednesday Thursday Friday Saturday Sunday].each do |day|
+  WeekdayTimeRange.create! day: day, start_in_mins: 16*60, end_in_mins: 19*60, vendor: vendor
+end
+p "Seeded #{vendor.name}"
