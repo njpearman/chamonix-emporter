@@ -27,6 +27,8 @@ export default class Map {
       }
       document.getElementsByTagName('body')[0].appendChild(script)
       this.mapsScriptLoaded = true
+    } else {
+      this.prepared()
     }
   }
 
