@@ -8,7 +8,11 @@
     <%= link_to t(".filter_delivers"), localized_path(filters: filter_toggle_for(filter: "delivers", filters: @filters)), class: filter_class(filter: "delivers", filters: @filters) %>
     <%= link_to t(".filter_clear"), localized_path, class: has_filter_class(filters: @filters) %>
   </div>
-  <div id="map" class="map"></div>
+  <div class="mapContainer" data-controller="map">
+    <div data-target="map.centreLatitude" style="display: none"></div>
+    <div data-target="map.centreLongitude" style="display: none"></div>
+    <div id="map" class="map" data-target="map.canvas"></div>
+  </div>
   <div class="results-container" data-controller="sort">
     <%= button_tag t(".sort_nearest"), class: "btn", id: "sortNearest", data: { action: "click->sort#nearest" }%>
     <div class="content" data-target="sort.vendors">

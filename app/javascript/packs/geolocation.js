@@ -52,4 +52,3 @@ export default class Geolocation {
     console.log(`Result of getting location: ${this.message}`)
   }
 }
-

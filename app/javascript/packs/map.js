@@ -15,8 +15,10 @@ export default class Map {
   }
 
   prepare() {
-    if(!this.mapsScriptLoaded) {
-      var script = document.createElement('script')
+    if(typeof(google) !== 'undefined') {
+      this.prepared()
+    } else {
+      const script = document.createElement('script')
       script.src = `https://maps.googleapis.com/maps/api/js?key=${Constants.GOOGLE_MAPS_KEY}&libraries=places&callback=mapsReady`
       script.type = 'text/javascript'
       script.setAttribute('async', null)
@@ -25,11 +27,9 @@ export default class Map {
       window.mapsReady = () => {
         prepared()
       }
+
       document.getElementsByTagName('body')[0].appendChild(script)
-      this.mapsScriptLoaded = true
-    } else {
-      this.prepared()
-    }
+    } 
   }
 
   build() {
