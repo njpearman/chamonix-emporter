@@ -47,22 +47,27 @@ export default class extends Controller {
         // Move the circle after moving the pin
         google.maps.event.addListener(marker, "dragend", (event) => {
           bufferCircle.setCenter(event.latLng)
-          // recalculate distances, re-render map, re-order nearest
+          // recalculate distances, re-order nearest
+          new DistanceCalculator({ lat: event.latLng.lat(), lng: event.latLng.lng() })
+            .distancesForEach('.vendor')
+            .then(() => this.sortList())
         })
 
         // now need to calculate distances of each vendor from the geo location
         new DistanceCalculator({ lat: geo.latitude, lng: geo.longitude })
           .distancesForEach('.vendor')
+          .then(() => this.sortList())
       })
-    .then(() => {
-      // do the sorting of the list
-      console.log("Sorting by nearest. Found " + this.resultTargets.length + " results")
-      // get an list of results, ordered by distance
-      const orderedResults = this.resultTargets.sort(this.compareNearest)
-      // iterate the ordered list, re-appending them to vendorsTarget
-      orderedResults.forEach(result => {
-        this.vendorsTarget.append(result)
-      })
+  }
+
+  sortList() {
+    // do the sorting of the list
+    console.log("Sorting by nearest. Found " + this.resultTargets.length + " results")
+    // get an list of results, ordered by distance
+    const orderedResults = this.resultTargets.sort(this.compareNearest)
+    // iterate the ordered list, re-appending them to vendorsTarget
+    orderedResults.forEach(result => {
+      this.vendorsTarget.append(result)
     })
   }
   
@@ -77,13 +82,5 @@ export default class extends Controller {
     } else {
       return 0
     }
-  }
-
-  getCurrentLocation() {
-    const geo = new Geolocation()
-    const nearBtn = document.getElementById('sortNearest')
-    nearBtn.addEventListener('click', function getCoords(evt) {
-      evt.preventDefault()
-    })
   }
 }

@@ -7,10 +7,13 @@ export default class DistanceCalculator {
   }
 
   distancesForEach(selector) {
-    document.querySelectorAll(selector).forEach(vendor => {
-      const distance = this.distanceTo(JSON.parse(vendor.dataset.position))
-      vendor.dataset.distance = distance
-      console.log(`${vendor.dataset.name} is ${vendor.dataset.distance} from Chamonix`)
+    return new Promise(resolve => {
+      document.querySelectorAll(selector).forEach(vendor => {
+        const distance = this.distanceTo(JSON.parse(vendor.dataset.position))
+        vendor.dataset.distance = distance
+        console.log(`${vendor.dataset.name} is ${vendor.dataset.distance} from Chamonix`)
+      })
+      resolve('resolved')
     })
   }
 
