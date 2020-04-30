@@ -28,11 +28,9 @@ export default class extends Controller {
           icon: image
         })
 
-        map = this
-
         marker.addListener('click', () => {
-          map.mapRepresentation.setZoom(15)
-          map.mapRepresentation.setCenter(marker.getPosition())
+          this.mapRepresentation.setZoom(15)
+          this.mapRepresentation.setCenter(marker.getPosition())
           // Scroll to and hightlight vendor?
           // Add popup?
         })
