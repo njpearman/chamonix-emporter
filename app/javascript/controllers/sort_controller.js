@@ -15,6 +15,10 @@ export default class extends Controller {
   }
 
   nearest() {
+    // Hack(?) to access the map
+    const { map } = this.application.controllers.find(controller => (
+      controller.context.identifier === 'map'
+    ))
     const geo = this.geo
 
     geo.getLocation()
@@ -46,8 +50,8 @@ export default class extends Controller {
           bufferCircle.setCenter(event.latLng)
           // recalculate distances, re-order nearest
           //   This conflicts with pressing "nearest" a second time, as
-          //   geo will be reset, and a new marker and radius circle will 
-          //   be drawn on the map. 
+          //   geo will be reset, and a new marker and radius circle will
+          //   be drawn on the map.
           //   Also, the location is reset and the map redrawn when a filter
           //   is applied.
           this.geo.setLocation(event.latLng.lat(), event.latLng.lng())
@@ -72,7 +76,7 @@ export default class extends Controller {
     // iterate the ordered list, re-appending them to vendorsTarget
     orderedResults.forEach(result => this.vendorsTarget.append(result))
   }
-  
+
   compareNearest(first, second) {
     const firstDistance = first.dataset.distance
     const secondDistance = second.dataset.distance
