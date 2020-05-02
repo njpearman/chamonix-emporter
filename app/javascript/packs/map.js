@@ -29,7 +29,7 @@ export default class Map {
       }
 
       document.getElementsByTagName('body')[0].appendChild(script)
-    } 
+    }
   }
 
   build() {
@@ -41,7 +41,7 @@ export default class Map {
 			styles: this.style()
 		})
 
-    container.style.height = '25rem';
+    container.style.height = '19rem';
 	}
 
   style() {

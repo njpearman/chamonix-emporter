@@ -1,6 +1,8 @@
 import { Controller } from "stimulus"
 import DistanceCalculator from '../packs/distanceCalculator'
 import Geolocation from '../packs/geolocation'
+import PinImage from '../images/user-pin.svg'
+
 
 export default class extends Controller {
   static targets = [ "vendors", "result" ]
@@ -15,6 +17,9 @@ export default class extends Controller {
   }
 
   nearest() {
+    const btn = document.getElementById('sortNearest')
+    btn.disabled = true
+    btn.classList.add('loading')
     // Hack(?) to access the map
     const { map } = this.application.controllers.find(controller => (
       controller.context.identifier === 'map'
@@ -23,15 +28,22 @@ export default class extends Controller {
 
     geo.getLocation()
       .then(() => geo.print())
+      .then(() => btn.remove())
       // Reload page with coors and let ruby do the work or filter with JS?
       .then(() => {
         const centre = new google.maps.LatLng(geo.latitude, geo.longitude)
+        const userPin = {
+          url: PinImage,
+          scaledSize: new google.maps.Size(24, 32)
+        }
         // Drop a pin at the user location
         const marker = new google.maps.Marker({
           position: centre,
           map: map.mapRepresentation,
+          animation: google.maps.Animation.DROP,
           draggable: true,
           title: 'This is you!',
+          icon: userPin
         })
         // Create a 1km circle around the user
         const bufferCircle = new google.maps.Circle({
@@ -42,8 +54,20 @@ export default class extends Controller {
           strokeWeight: 1,
           fillColor: "#61a0e9",
           fillOpacity: 0.4,
-          map: map.mapRepresentation
+          map: map.mapRepresentation,
+          visible: false
         })
+
+        setTimeout(() => {
+          const infowindow = new google.maps.InfoWindow({
+            content: '<strong>Your location</strong><br>You can drag me!'
+          })
+          infowindow.open(map.mapRepresentation, marker)
+          setTimeout(() => infowindow.close(), 3500);
+          bufferCircle.setVisible(true)
+        }, 600)
+
+
 
         // Move the circle after moving the pin
         google.maps.event.addListener(marker, "dragend", (event) => {

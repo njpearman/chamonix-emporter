@@ -14,7 +14,7 @@
     <div id="map" class="map" data-target="map.canvas"></div>
   </div>
   <div class="results-container" data-controller="sort">
-    <%= button_tag t(".sort_nearest"), class: "btn", id: "sortNearest", data: { action: "click->sort#nearest" }%>
+    <%= button_tag t(".sort_nearest"), class: "btn btn--sort", id: "sortNearest", data: { action: "click->sort#nearest" }%>
     <div class="content" data-target="sort.vendors">
       <% @vendors.each do |vendor| %>
         <div class="vendor place<%= vendor.delivers ? " vendor--delivers" : "" %>" data-name="<%= vendor.name %>" data-position="<%= vendor.location.position.to_json %>" data-target="sort.result">
