@@ -1,5 +1,7 @@
 # Chamonix takeaway app
 
+See what restaurants in the Chamnonix valley are providing takeaway and delivery services: [https://takeaway.chamgeeks.com](https://takeaway.chamgeeks.com)
+
 We built this basic web site / web app so that people had one place to find information about restaurants that are providing takeaway and delivery services in Chamonix valley during the COVID-19 lockdown and beyond.
 It was built as a hobby project and is both rough around the edges and over-engineered for what it is doing.
 We like the choices because we're comfortable with them, or using this as an opportunity to learn.
@@ -52,9 +54,12 @@ Then deploy.
 Deploying requires the default SSH key (`id_rsa`) to be the one used to log in to the remote host, as older versions of `docker-compose` do not know how to use `.ssh/config`.
 It is also necessary to add your remote user to the `docker` group in order to have permissions to interact with the docker socket used by the docker daemon.
 
+It is necessary to change the port number in docker-stack.yml if the server is already running a container bound to port 3000.
+
 To deploy:
 
 1. `export DOCKER_HOST='ssh://<username>:206.189.228.95'
 2. `COMPOSE_FILE=docker-stack.yml docker-compose down`
-3. `COMPOSE_FILE=docker-stack.yml docker-compose up -d`
+3. `COMPOSE_FILE=docker-stack.yml docker-compose pull`
+4. `COMPOSE_FILE=docker-stack.yml docker-compose up -d`
 
