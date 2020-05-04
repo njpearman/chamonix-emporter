@@ -49,8 +49,8 @@ GOOGLE_MAPS_KEY=
 ```
 
 Then deploy.
-Deploying requires the default SSH key (`id_rsa`) to be the one used to log in to the remote host, as older versions of `docker-compose` do not know how to use .ssh/config.
-It is also necessary to add your remote user to the `docker` group in order to have permissions to interact with the docker socker used by the docker daemon.
+Deploying requires the default SSH key (`id_rsa`) to be the one used to log in to the remote host, as older versions of `docker-compose` do not know how to use `.ssh/config`.
+It is also necessary to add your remote user to the `docker` group in order to have permissions to interact with the docker socket used by the docker daemon.
 
 To deploy:
 
