@@ -15,7 +15,6 @@ Use docker and do `docker-compose up` to run the dev server and webpack dev serv
 The following environment variables need to be included in `.env/development/web`:
 
 ```
-DATABASE_HOST=
 GOOGLE_MAPS_KEY=
 ```
 
@@ -23,7 +22,7 @@ The docker set up allows you to use `bin/bundle install` in the same way as in a
 This is achieved with the `gem_cache` mounted volume to store installed gem.
 
 ### Plain old local
-Alternatively, run locally as a Rails with webpacker app. To set up the app for development:
+Alternatively, run locally as a "Rails with webpacker" app. To set up the app for development:
 
 ```bash
 bin/bundle install
