@@ -7,6 +7,8 @@ export default class extends Controller {
   static targets = [ "canvas", "centreLatitude", "centreLongitude" ]
 
   initialize() {
+    console.log("Initializing MapController")
+
     this.map = new Map("map", chamonixValley)
     this.vendorMarkers = []
     const vendorMarkers = this.vendorMarkers
@@ -50,6 +52,9 @@ export default class extends Controller {
   }
 
   connect() {
-    this.map.prepare()
+    console.log("Connected MapController")
+    if (!document.documentElement.hasAttribute("data-turbolinks-preview")) {
+      this.map.prepare()
+    }
   }
 }

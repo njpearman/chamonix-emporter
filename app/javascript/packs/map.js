@@ -25,6 +25,7 @@ export default class Map {
       script.setAttribute('defer', null)
       const prepared = this.prepared.bind(this)
       window.mapsReady = () => {
+        console.log("google maps script loaded")
         prepared()
       }
 
