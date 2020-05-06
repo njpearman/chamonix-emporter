@@ -16,52 +16,7 @@
   <div class="results-container" data-controller="sort">
     <%= button_tag t(".sort_nearest"), class: "btn btn--sort", id: "sortNearest", data: { action: "click->sort#nearest" }%>
     <div class="content" data-target="sort.vendors">
-      <% @vendors.each do |vendor| %>
-        <div class="vendor place<%= vendor.delivers ? " vendor--delivers" : "" %>" data-name="<%= vendor.name %>" data-position="<%= vendor.location.position.to_json %>" data-target="sort.result">
-          <div class="title" ><%= vendor.name %></div>
-          <% if vendor.open_today? %>
-            <div class="opening">
-              <span class="open-text"><%= t ".open_today" %></span>
-              <% vendor.hours_for_today.each do |range| %>
-                <div><%= range %></div>
-              <% end %>
-            </div>
-          <% else %>
-            <div class="opening closed-text"><%= t ".closed_today" %></div>
-          <% end %>
-
-          <% if vendor.information %>
-            <div class="meta">
-              <%= simple_format(vendor.information) %>
-            </div>
-          <% end %>
-
-          <div class="meta">
-            <div class="contact">
-              <%= render partial: "location", locals: { location: vendor.location, name: vendor.name } %>
-            </div>
-            <% vendor.contact_channels.order(:name).each do |contact| %>
-              <div class="contact">
-                <span class="contact__label">
-                  <i class="demo-icon icon-<%= contact.name %>" title="<%= contact.name %>"></i>
-                </span>
-                <a href="<%= contact.value %>"><%= contact.label %></a>
-              </div>
-            <% end %>
-          </div>
-
-          <div class="place__footer space-between">
-            <div class="delivers<%= vendor.delivers ? " open" : ""%>"><%= t ".delivers", icon: (vendor.delivers ? "✓" : "𐄂") %></div>
-            <div class="open-days">
-              <% Date::DAYNAMES.each do |day| %>
-                <span class="day<%= vendor.open_on?(day) ? " open" : "" %>" title="<%= t("date.days.#{day.downcase}") %>">
-                  <%= t("date.days.#{day.downcase}")[0] %>
-                </span>
-            <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      <%= render partial: 'vendor', collection: @vendors %>
     </div>
   </div>
 

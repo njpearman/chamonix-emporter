@@ -36,11 +36,12 @@ en:
       filter_open: "Open today"
       filter_delivers: "Delivers"
       filter_clear: "Clear"
+      footer_text: "Please contact our %{email} if you know more places or if some info is wrong."
+      footer_created: "Created by"
+    vendor:
       open_today: "Open today"
       closed_today: "Closed today"
       delivers: "Delivers: %{icon}"
-      footer_text: "Please contact our %{email} if you know more places or if some info is wrong."
-      footer_created: "Created by"
   date:
     days:
       sunday: "Sunday"

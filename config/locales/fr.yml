@@ -10,6 +10,10 @@ fr:
       delivers: "Livraison: %{icon}"
       footer_text: "Veuillez contacter notre %{email} si vous connaissez plus d'endroits ou si certaines informations sont erronées."
       footer_created: "Créé par"
+    vendor:
+      open_today: "Ouvert aujourd'hui"
+      closed_today: "Fermé aujourd'hui"
+      delivers: "Livraison: %{icon}"
   date:
     days:
       sunday: "Dimanche"
