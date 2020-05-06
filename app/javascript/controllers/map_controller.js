@@ -24,6 +24,10 @@ export default class extends Controller {
 
       vendorMarkers.forEach(marker => marker.setMap(null))
 
+      if (document.documentElement.hasAttribute("data-turbolinks-preview")) {
+        return
+      }
+
       vendors.forEach((vendor, index) => {
         console.log(`Marking up ${vendor.dataset.name} with position ${vendor.dataset.position}`)
         const parsedPosition = JSON.parse(vendor.dataset.position)
@@ -53,8 +57,6 @@ export default class extends Controller {
 
   connect() {
     console.log("Connected MapController")
-    if (!document.documentElement.hasAttribute("data-turbolinks-preview")) {
-      this.map.prepare()
-    }
+    this.map.prepare()
   }
 }
