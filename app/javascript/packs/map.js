@@ -15,7 +15,7 @@ export default class Map {
   }
 
   prepare() {
-    if(typeof(google) !== 'undefined') {
+    if(typeof(google) !== 'undefined' && typeof(google.maps) !== 'undefined') {
       this.prepared()
     } else {
       const script = document.createElement('script')
@@ -33,6 +33,10 @@ export default class Map {
   }
 
   build() {
+    if (this.mapLoaded()) {
+      return
+    }
+
     const container = document.getElementById(this.containerId)
 
 		this.mapRepresentation = new google.maps.Map(container, {
@@ -43,6 +47,10 @@ export default class Map {
 
     container.style.height = '19rem';
 	}
+  
+  mapLoaded() {
+    return this.mapRepresentation && this.mapRepresentation.mapTypeId
+  }
 
   style() {
 		return [
