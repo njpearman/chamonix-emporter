@@ -28,7 +28,7 @@ export default class Map {
         prepared()
       }
 
-      document.getElementsByTagName('body')[0].appendChild(script)
+      document.getElementsByTagName('head')[0].appendChild(script)
     }
   }
 
