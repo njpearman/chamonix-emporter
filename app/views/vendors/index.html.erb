@@ -11,7 +11,7 @@
   <div class="mapContainer" data-controller="map">
     <div data-target="map.centreLatitude" style="display: none"></div>
     <div data-target="map.centreLongitude" style="display: none"></div>
-    <div id="map" class="map" data-target="map.canvas"></div>
+    <div id="map" class="map" data-target="map.canvas" data-turbolinks-permanent></div>
   </div>
   <div class="results-container" data-controller="sort">
     <%= button_tag t(".sort_nearest"), class: "btn btn--sort", id: "sortNearest", data: { action: "click->sort#nearest" }%>
