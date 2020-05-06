@@ -8,6 +8,8 @@ export default class extends Controller {
 
   initialize() {
     this.map = new Map("map", chamonixValley)
+    this.vendorMarkers = []
+    const vendorMarkers = this.vendorMarkers
 
     this.map.addPreparedCallback(function setMarkers() {
       const vendors = document.querySelectorAll('.vendor')
@@ -17,6 +19,8 @@ export default class extends Controller {
         scaledSize: new google.maps.Size(16, 29),
         origin: new google.maps.Point(0, 0),
       }
+
+      vendorMarkers.forEach(marker => marker.setMap(null))
 
       vendors.forEach((vendor, index) => {
         console.log(`Marking up ${vendor.dataset.name} with position ${vendor.dataset.position}`)
@@ -38,6 +42,8 @@ export default class extends Controller {
               .InfoWindow({ content: `<strong>${vendor.dataset.name}</strong>`})
               .open(this.mapRepresentation, marker)
           })
+          
+          vendorMarkers.push(marker)
         }, index * 100)
       })
     })
