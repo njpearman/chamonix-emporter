@@ -8,11 +8,11 @@ We like the choices because we're comfortable with them, or using this as an opp
 
 ## Development
 
-Make changes to the code as needed on your local machine. Running the server for development is best done with docker, although this makes rails commands longer to type, e.g. `docker-compose exec web bin/rails db:migrate` instead of `bin/rails db:migrate`.
+Make changes to the code as needed on your local machine. Running the server for development is best done with docker, although this makes rails commands longer to type, e.g. `docker-compose exec web bin/rails db:migrate db:seed` instead of `bin/rails db:migrate`.
 
 ### Docker (preferred)
 Use docker and do `docker-compose up` to run the dev server and webpack dev server in separate containers.
-The following environment variables need to be included in `.env/development/web`:
+The following environment variables need to be included in `.env/development/web` & `.env/development/database`:
 
 ```
 GOOGLE_MAPS_KEY=

@@ -6,10 +6,13 @@
 html { height: 100%; }
 body {
   margin: 0;
-  padding: 15px;
+  padding: 0;
   background: #2d3233;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #333;
+}
+.wrapper {
+  padding: 15px;
 }
 
 @media (min-width: 500px) {
@@ -262,5 +265,21 @@ h3 {
   &:disabled {
     opacity: .8;
     cursor: default;
+  }
+}
+
+
+.alert {
+  background: #c85b5b;
+  color: #fff;
+  padding: 40px 15px 15px;
+  text-align: center;
+  border-bottom: 1px solid #000000;
+  box-shadow: 0 0 10px rgba(0,0,0,.5);
+  text-shadow: 1px 1px 1px #7b2323;
+}
+@media (min-width: 500px) {
+  .alert {
+    padding-top: 15px;
   }
 }
