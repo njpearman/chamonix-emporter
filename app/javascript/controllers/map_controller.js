@@ -10,8 +10,7 @@ export default class extends Controller {
     console.log("Initializing MapController")
 
     this.map = new Map("map", chamonixValley)
-    this.vendorMarkers = []
-    const vendorMarkers = this.vendorMarkers
+    const vendorMarkers = []
 
     this.map.addPreparedCallback(function setMarkers() {
       const vendors = document.querySelectorAll('.vendor')
