@@ -15,7 +15,7 @@ export default class Map {
   }
 
   prepare() {
-    if(typeof(google) !== 'undefined') {
+    if(typeof(google) !== 'undefined' && typeof(google.maps) !== 'undefined') {
       this.prepared()
     } else {
       const script = document.createElement('script')
@@ -25,14 +25,19 @@ export default class Map {
       script.setAttribute('defer', null)
       const prepared = this.prepared.bind(this)
       window.mapsReady = () => {
+        console.log("google maps script loaded")
         prepared()
       }
 
-      document.getElementsByTagName('body')[0].appendChild(script)
+      document.getElementsByTagName('head')[0].appendChild(script)
     }
   }
 
   build() {
+    if (this.mapLoaded()) {
+      return
+    }
+
     const container = document.getElementById(this.containerId)
 
 		this.mapRepresentation = new google.maps.Map(container, {
@@ -43,6 +48,10 @@ export default class Map {
 
     container.style.height = '19rem';
 	}
+  
+  mapLoaded() {
+    return this.mapRepresentation && this.mapRepresentation.mapTypeId
+  }
 
   style() {
 		return [

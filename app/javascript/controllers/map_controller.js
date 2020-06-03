@@ -7,7 +7,10 @@ export default class extends Controller {
   static targets = [ "canvas", "centreLatitude", "centreLongitude" ]
 
   initialize() {
+    console.log("Initializing MapController")
+
     this.map = new Map("map", chamonixValley)
+    const vendorMarkers = []
 
     this.map.addPreparedCallback(function setMarkers() {
       const vendors = document.querySelectorAll('.vendor')
@@ -16,6 +19,12 @@ export default class extends Controller {
         url: PinImage,
         scaledSize: new google.maps.Size(16, 29),
         origin: new google.maps.Point(0, 0),
+      }
+
+      vendorMarkers.forEach(marker => marker.setMap(null))
+
+      if (document.documentElement.hasAttribute("data-turbolinks-preview")) {
+        return
       }
 
       vendors.forEach((vendor, index) => {
@@ -38,12 +47,15 @@ export default class extends Controller {
               .InfoWindow({ content: `<strong>${vendor.dataset.name}</strong>`})
               .open(this.mapRepresentation, marker)
           })
+          
+          vendorMarkers.push(marker)
         }, index * 100)
       })
     })
   }
 
   connect() {
+    console.log("Connected MapController")
     this.map.prepare()
   }
 }
