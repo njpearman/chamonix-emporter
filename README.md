@@ -12,7 +12,7 @@ Make changes to the code as needed on your local machine. Running the server for
 
 ### Docker (preferred)
 Use docker and do `docker-compose up` to run the dev server and webpack dev server in separate containers.
-The following environment variables need to be included in `.env/development/web` & `.env/development/database`:
+The following environment variables need to be included in `.env/development/web`:
 
 ```
 GOOGLE_MAPS_KEY=
@@ -61,4 +61,3 @@ To deploy:
 2. `COMPOSE_FILE=docker-stack.yml docker-compose down`
 3. `COMPOSE_FILE=docker-stack.yml docker-compose pull`
 4. `COMPOSE_FILE=docker-stack.yml docker-compose up -d`
-
