@@ -57,7 +57,7 @@ It is necessary to change the port number in docker-stack.yml if the server is a
 
 To deploy:
 
-1. `export DOCKER_HOST='ssh://<username>:206.189.228.95'`
+1. `export DOCKER_HOST='ssh://<username>@206.189.228.95'`
 2. `COMPOSE_FILE=docker-stack.yml docker-compose down`
 3. `COMPOSE_FILE=docker-stack.yml docker-compose pull`
 4. `COMPOSE_FILE=docker-stack.yml docker-compose up -d`
